@@ -1,2 +1,3 @@
 import QuestionResolver from './QuestionResolver';
-export default [QuestionResolver];
+import UserResolver from './UserResolver';
+export default [QuestionResolver, UserResolver];
