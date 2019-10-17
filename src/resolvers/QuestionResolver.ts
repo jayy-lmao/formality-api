@@ -11,24 +11,23 @@ interface IQuestionData {
 
 const questions: IQuestionData[] = [
     {
-		id: 1,
-		questionType: "short_answer",
-		text: "What is the speed of an unladen swallow",
-		// form: 1
-	},
+        id: 1,
+        questionType: "short_answer",
+        text: "What is the speed of an unladen swallow",
+        // form: 1
+    },
 ];
 
 @Resolver((of) => Question)
 class QuestionResolver {
-
-    @Query((returns) => [Question])
+    @Query((returns) => [ Question ])
     public questions(): IQuestionData[] {
         return questions;
     }
 
     @Mutation((returns) => Question)
     public async createQuestion(@Arg("data") data: QuestionInput): Promise<Question> {
-        const {id, text, questionType} = data;
+        const { id, text, questionType } = data;
         const newQuestion: IQuestionData = {
             id,
             questionType,
@@ -37,7 +36,6 @@ class QuestionResolver {
         await questions.push(newQuestion);
         return newQuestion;
     }
-
 }
 
 export default QuestionResolver;
