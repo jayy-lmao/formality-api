@@ -9,11 +9,7 @@ class FormInput implements Partial<Form> {
     public id: number;
     @Field() public title: string;
     @Field() public description: string;
-    @Field((type) => [ Question ])
-    // public questions: Question[];
-    @Field() public notes: string;
-    @Field((type) => User)
-    public author: number;
+    // @Field(type => User) public author: User;
 }
 
 export default FormInput;

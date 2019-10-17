@@ -6,6 +6,7 @@ import Question from "../../schemas/Question";
 class QuestionInput implements Partial<Question> {
   @Field() public text: string;
   @Field() public id: number;
+  @Field() public formId: number;
   @Field() public questionType: "short_answer" | "multiple_choice";
   // @Field(type => Form) public form: number;
 }

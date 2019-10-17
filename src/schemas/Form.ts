@@ -7,9 +7,8 @@ class Form {
   @Field(type => Int) public id: number;
   @Field() public title: string;
   @Field() public description: string;
-  // @Field(type => [Question]) public questions: Question[];
-  @Field() public notes: string;
-  @Field(type => User) public author: number;
+  @Field(type => [Question]) public questions: Question[];
+  @Field(type => User) public author: User;
 }
 
 export default Form;
