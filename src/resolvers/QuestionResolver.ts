@@ -1,5 +1,7 @@
 import { Arg, FieldResolver, Mutation, Query, Resolver, Root } from "type-graphql";
-import { forms, IFormData, IQuestionData, questions } from "../data";
+import { forms, questions } from "../data";
+import { IFormData } from "../IFormData";
+import { IQuestionData } from "../IQuestionData";
 import Form from "../schemas/Form";
 import Question from "../schemas/Question";
 import QuestionInput from "./inputs/QuestionInput";
