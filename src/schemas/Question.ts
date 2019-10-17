@@ -7,8 +7,8 @@ class Question {
   @Field() public text: string;
   @Field() public questionType: string;
   // @Field() options: string[];
-  @Field() public notes?: string;
-  // @Field(type => Form) form: Form;
+  // @Field() public notes?: string;
+  // @Field(type => Form) public form: number;
 }
 
 export default Question;
