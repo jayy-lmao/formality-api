@@ -7,6 +7,7 @@ import {
   Resolver,
   Root
 } from "type-graphql";
+import { forms } from "../data";
 import User from "../schemas/User";
 import UserInput from "./inputs/UserInput";
 
@@ -31,8 +32,13 @@ class UserResolver {
     return users;
   }
 
+    @FieldResolver()
+    public forms(@Root() userData: IUserData){
+        return forms.filter(f => f.userId = userData.id)
+    }
+
   @Mutation(returns => User)
-  public async createUser(@Arg("data") data: UserInput): Promise<User> {
+  public async createUser(@Arg("data") data: UserInput): Promise<IUserData> {
     const saltRounds = 10;
     const { id, email, password: plaintext } = data;
     const password = await hash(plaintext, saltRounds);

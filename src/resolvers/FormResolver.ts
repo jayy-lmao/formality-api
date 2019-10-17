@@ -1,5 +1,5 @@
 import { Arg, FieldResolver, Mutation, Query, Resolver, Root } from "type-graphql";
-import { forms, questions } from "../data";
+import { forms, questions, users } from "../data";
 import { IFormData } from "../IFormData";
 import Form from "../schemas/Form";
 import Question from "../schemas/Question";
@@ -15,13 +15,19 @@ class FormResolver {
         return forms;
     }
 
+    @FieldResolver()
+    public author(@Root() formData: IFormData) {
+        return users.find((u) => u.id === formData.userId);
+    }
+
     @Mutation((returns) => Form)
     public async createForm(@Arg("data") data: FormInput): Promise<IFormData>{
-        const { description, id, title } = data;
+        const { description, userId, id, title } = data;
         const newForm: IFormData = {
             description,
             id,
             title,
+            userId,
         };
         await forms.push(newForm);
         return newForm;

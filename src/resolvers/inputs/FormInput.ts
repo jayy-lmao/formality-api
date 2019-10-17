@@ -7,6 +7,7 @@ import User from "../../schemas/User";
 class FormInput implements Partial<Form> {
     @Field((type) => Int)
     public id: number;
+    @Field() public userId: number;
     @Field() public title: string;
     @Field() public description: string;
     // @Field(type => User) public author: User;
