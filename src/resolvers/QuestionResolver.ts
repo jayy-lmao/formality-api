@@ -1,42 +1,39 @@
-import { Arg, FieldResolver, Mutation, Query, Resolver, Root } from 'type-graphql';
-import Question from '../schemas/Question';
-import Form from '../schemas/Form';
-import QuestionInput from './inputs/QuestionInput';
+import { Arg, FieldResolver, Mutation, Query, Resolver, Root } from "type-graphql";
+import Form from "../schemas/Form";
+import Question from "../schemas/Question";
+import QuestionInput from "./inputs/QuestionInput";
 
-interface QuestionData {
+interface IQuestionData {
     id: number;
     text: string;
-    order: number;
-    questionType: 'short_answer' | 'multiple_choice';
+    questionType: "short_answer" | "multiple_choice";
 }
 
-const questions: QuestionData[] = [
-	{
+const questions: IQuestionData[] = [
+    {
 		id: 1,
-		order: 0,
-		text: 'What is the speed of an unladen swallow',
-		questionType: 'short_answer'
+		questionType: "short_answer",
+		text: "What is the speed of an unladen swallow",
 		// form: 1
-	}
+	},
 ];
 
 @Resolver((of) => Question)
 class QuestionResolver {
 
-    @Query(returns => [Question])
-    questions(): QuestionData[]{
+    @Query((returns) => [Question])
+    public questions(): IQuestionData[] {
         return questions;
     }
 
-    @Mutation(returns => Question)
-    async createQuestion(@Arg("data") data: QuestionInput): Promise<Question> {
-        const {id, text, order, questionType} = data;
-        const newQuestion: QuestionData = {
+    @Mutation((returns) => Question)
+    public async createQuestion(@Arg("data") data: QuestionInput): Promise<Question> {
+        const {id, text, questionType} = data;
+        const newQuestion: IQuestionData = {
             id,
+            questionType,
             text,
-            order,
-            questionType
-        }
+        };
         await questions.push(newQuestion);
         return newQuestion;
     }

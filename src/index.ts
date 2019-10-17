@@ -1,24 +1,23 @@
-import { GraphQLServer } from 'graphql-yoga';
+import { GraphQLServer } from "graphql-yoga";
 import "reflect-metadata";
-import { buildSchema } from 'type-graphql';
-import resolvers from './resolvers';
+import { buildSchema } from "type-graphql";
+import resolvers from "./resolvers";
 
 const PORT = 4001;
 
-
 (async () => {
     const schema = await buildSchema({
-        resolvers,
         emitSchemaFile: false,
+        resolvers,
     });
     const server = new GraphQLServer({
         schema,
     });
 
     const options = {
+        endpoint: "/graphql",
+        playground: "/playground",
         port: PORT,
-        endpoint: '/graphql',
-        playground: '/playground',
-    }
+    };
     server.start(options, () => console.log(`Server running on ${PORT}`));
-})()
+})();

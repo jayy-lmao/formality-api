@@ -1,14 +1,13 @@
-import { Field, Int, ID, ObjectType } from 'type-graphql';
-import Form from './Form';
+import { Field, ID, Int, ObjectType } from "type-graphql";
+import Form from "./Form";
 
 @ObjectType()
 class Question {
-    @Field(type => ID) id: number;
-    @Field(type => Int) order: number;
-    @Field() text: string;
-    @Field() questionType: string;
+    @Field((type) => ID) public id: number;
+    @Field() public text: string;
+    @Field() public questionType: string;
     // @Field() options: string[];
-    @Field() notes?: string;
+    @Field() public notes?: string;
     // @Field(type => Form) form: Form;
 }
 
