@@ -1,26 +1,11 @@
 import { Arg, FieldResolver, Mutation, Query, Resolver, Root } from "type-graphql";
+import { forms, IFormData, IQuestionData, questions } from "../data";
 import Form from "../schemas/Form";
 import Question from "../schemas/Question";
 import User from "../schemas/User";
 import FormInput from "./inputs/FormInput";
 
-interface IFormData {
-    id: number;
-    author: number;
-    title: string;
-    description: string;
-    notes: string;
-}
 
-const forms: IFormData[] = [
-    {
-        author: 1,
-        description: "jklas fdakjkaf kjfaldfdajk",
-        id: 1,
-        notes: "dfg",
-        title: "Hellaosd",
-    },
-];
 
 @Resolver((of) => Form)
 class FormResolver {
@@ -30,19 +15,21 @@ class FormResolver {
     }
 
     @Mutation((returns) => Form)
-    public async createForm(@Arg("data") data: FormInput): Promise<Form>{
-        const { author, description, id, title, notes } = data;
-        const newForm: Form = {
-            author,
+    public async createForm(@Arg("data") data: FormInput): Promise<IFormData>{
+        const { description, id, title } = data;
+        const newForm: IFormData = {
             description,
             id,
-            notes,
-            // questions: [],
             title,
         };
         await forms.push(newForm);
         return newForm;
     }
+    @FieldResolver()
+    public questions(@Root() formData: IFormData){
+        return questions.filter(q => q.formId = formData.id)
+    }
 }
+
 
 export default FormResolver;
