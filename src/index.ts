@@ -1,15 +1,11 @@
 import { GraphQLServer } from "graphql-yoga";
 import "reflect-metadata";
-import { buildSchema } from "type-graphql";
-import resolvers from "./resolvers";
+import { createSchema } from "./createSchema";
 
 const PORT = 4001;
 
 (async () => {
-  const schema = await buildSchema({
-    emitSchemaFile: false,
-    resolvers
-  });
+  const schema = await createSchema();
   const server = new GraphQLServer({
     schema
   });
