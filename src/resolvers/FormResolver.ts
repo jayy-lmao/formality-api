@@ -2,8 +2,6 @@ import { Arg, FieldResolver, Mutation, Query, Resolver, Root } from "type-graphq
 import { forms, questions, users } from "../data";
 import { IFormData } from "../IFormData";
 import Form from "../schemas/Form";
-import Question from "../schemas/Question";
-import User from "../schemas/User";
 import FormInput from "./inputs/FormInput";
 
 
