@@ -43,12 +43,9 @@ jobs:
           command: npm test
       - run: 
           name: Coverage
-          command: npx jest --coverage --coverageReporters=text-lcov | npx coveralls
-      - run: 
-          name: Pretty-uppening
-          command: npx prettier **/*.ts --write
+          command: npm run cover
       - run: 
           name: Linting
-          command: npx tslint --project . --fix
+          command: npm run lint
 
       - run: npx tsc

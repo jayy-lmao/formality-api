@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx jest",
+    "test": "jest",
     "lint": "tslint --project . --fix",
-    "start": "ts-node-dev --respawn src/index.ts"
+    "start": "ts-node-dev --respawn src/index.ts",
+    "cover": "jest --coverage --coverageReporters=text-lcov | coveralls"
   },
   "author": "",
   "license": "ISC",
