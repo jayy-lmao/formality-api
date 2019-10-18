@@ -5,7 +5,8 @@ import {
   Mutation,
   Query,
   Resolver,
-  Root
+  Root,
+  Authorized
 } from "type-graphql";
 import { forms } from "../data";
 import User from "../schemas/User";
