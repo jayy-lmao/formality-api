@@ -6,6 +6,7 @@ class User {
   @Field(type => Int) public id: number;
   @Field() public email: string;
   @Field() public password: string;
+  // @Field() public token: string;
   @Field(type => [Form]) public forms: Form[];
 }
 export default User;
