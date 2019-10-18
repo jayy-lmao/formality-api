@@ -1,11 +1,11 @@
-import { compare, hash } from "bcrypt";
-import jwt from "jsonwebtoken";
+import { hash } from "bcrypt";
 import { Arg, Authorized, FieldResolver, Mutation, Query, Resolver, Root } from "type-graphql";
 import { forms } from "../data";
 import User from "../schemas/User";
+import { getToken } from "./getToken";
 import UserInput from "./inputs/UserInput";
 
-interface IUserData {
+export interface IUserData {
     id: number;
     email: string;
     password: string;
@@ -61,32 +61,3 @@ class UserResolver {
 }
 
 export default UserResolver;
-
-function getToken(user: IUserData | undefined, password: string): Promise<string> {
-  return new Promise(async (resolve, reject) => {
-    if (user) {
-      await compare(password, user.password, (err, isMatch) => {
-        if (err) {
-          console.log('errord');
-          throw err;
-        }
-        if (!isMatch) {
-          console.log("no match");
-          reject("");
-        }
-        else {
-          const jwToken = jwt.sign({
-            data: { user },
-          }, process.env.JWT_SECRET || "something_is_better_than_nothing", {
-            algorithm: "HS256",
-          });
-          resolve(jwToken);
-        }
-      });
-    }
-    else {
-      reject("");
-    }
-  });
-}
-
