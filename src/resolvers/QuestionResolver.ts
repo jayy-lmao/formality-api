@@ -10,6 +10,10 @@ class QuestionResolver {
     public questions(): IQuestionData[] {
         return questions;
     }
+  @Query(returns => Question)
+  public question(@Arg("id") id: number): IQuestionData | undefined {
+    return questions.find(question => question.id === id);
+  }
 
     @FieldResolver()
     public form(@Root() questionData: IQuestionData) {

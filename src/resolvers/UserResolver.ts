@@ -32,6 +32,11 @@ class UserResolver {
     return users;
   }
 
+  @Query(returns => User)
+  public user(@Arg("id") id: number): IUserData | undefined {
+    return users.find(user => user.id === id);
+  }
+
     @FieldResolver()
     public forms(@Root() userData: IUserData){
         return forms.filter(f => f.userId = userData.id)
