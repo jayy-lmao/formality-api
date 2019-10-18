@@ -29,7 +29,9 @@ jobs:
             - v1-dependencies-
 
 
-      - run: install
+      - run: 
+          name: Installing Dependencies
+          command: npm install
 
       - save_cache:
           paths:
@@ -37,16 +39,16 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - run: 
-        name: Testing
-        command: npm test
+          name: Testing
+          command: npm test
       - run: 
-        name: Coverage
-        command: npx jest --coverage --coverageReporters=text-lcov | npx coveralls
+          name: Coverage
+          command: npx jest --coverage --coverageReporters=text-lcov | npx coveralls
       - run: 
-        name: Pretty-uppening
-        command: npx prettier **/*.ts --write
+          name: Pretty-uppening
+          command: npx prettier **/*.ts --write
       - run: 
-        name: Linting
-        command: npx tslint --project . --fix
+          name: Linting
+          command: npx tslint --project . --fix
 
       - run: npx tsc
