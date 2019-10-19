@@ -5,6 +5,8 @@
 
 Formality intends to be a clean form tool for creating and distributing forms!
 
+Uses Graphql and Typescript!
+
 
 ## Progress:
 Backend:
