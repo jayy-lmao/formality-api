@@ -8,8 +8,6 @@ jobs:
     docker:
       # specify the version you desire here
       - image: node:latest
-        environment: 
-          COVERALLS_REPO_TOKEN=PW3bldp2RijUv6lDwN3YBTvAWBAot1r3z
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
