@@ -1,4 +1,6 @@
 import { hash } from "bcrypt";
+
+import { ObjectId } from "mongodb";
 import { Arg, Authorized, FieldResolver, Mutation, Query, Resolver, Root } from "type-graphql";
 import { forms } from "../data";
 import User from "../schemas/User";
@@ -6,7 +8,7 @@ import { getToken } from "./getToken";
 import UserInput from "./inputs/UserInput";
 
 export interface IUserData {
-    id: number;
+    id: string;
     email: string;
     password: string;
 }
@@ -14,7 +16,7 @@ export interface IUserData {
 const users: IUserData[] = [
     {
         email: "Steven@steven.steven",
-        id: 1,
+        id: "1",
         password: "hlfahsdflj",
     },
 ];
@@ -23,15 +25,15 @@ const users: IUserData[] = [
 class UserResolver {
     private saltRounds = 10;
 
-    @Authorized()
     @Query((returns) => [ User ])
-    public users(): IUserData[] {
-        return users;
+    public async users(): Promise<User[]> {
+        return await User.find();
     }
 
     @Query((returns) => User)
-    public user(@Arg("id") id: number): IUserData | undefined {
-        return users.find((user) => user.id === id);
+    public async user(@Arg("id") id: string): Promise<User | undefined> {
+        const objectId = new ObjectId(id);
+        return await User.findOne({ where: { _id: objectId } });
     }
 
     @Query((type) => String)
@@ -43,19 +45,18 @@ class UserResolver {
 
     @FieldResolver()
     public forms(@Root() userData: IUserData) {
-        return forms.filter((f) => (f.userId === userData.id));
+        return forms.filter((f) => f.userId === userData.id);
     }
 
     @Mutation((returns) => User)
-    public async createUser(@Arg("data") data: UserInput): Promise<IUserData> {
-        const { id, email, password: plaintext } = data;
+    public async createUser(@Arg("data") data: UserInput): Promise<User> {
+        const { email, password: plaintext } = data;
         const password = await hash(plaintext, this.saltRounds);
-        const newUser: IUserData = {
+        const newUser = await User.create({
             email,
-            id,
             password,
-        };
-        users.push(newUser);
+        }).save();
+        // users.push(newUser);
         return newUser;
     }
 }

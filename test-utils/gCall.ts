@@ -3,7 +3,7 @@ import Maybe from "graphql/tsutils/Maybe";
 
 import { createSchema } from "../src/createSchema";
 
-interface Options {
+interface IOptions {
   source: string;
   variableValues?: Maybe<{
     [key: string]: any;
@@ -13,7 +13,7 @@ interface Options {
 
 let schema: GraphQLSchema;
 
-export const gCall = async ({ source, variableValues, userId }: Options) => {
+export const gCall = async ({ source, variableValues, userId }: IOptions) => {
   if (!schema) {
     schema = await createSchema();
   }

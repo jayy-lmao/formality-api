@@ -1,11 +1,21 @@
 import {} from "jest";
 import "mocha";
 import "reflect-metadata";
+import { Connection } from "typeorm";
 import { gCall } from "../test-utils/gCall";
+import { testConnection } from "../test-utils/test-connection";
+
+let conn: Connection;
+beforeAll(async () => {
+  conn = await testConnection();
+});
+afterAll(async () => {
+  await conn.close();
+});
 
 const questionById = `
 query {
-    question(id: 1) {
+    question(id: "5daaca0bdf20691272b91850") {
       id
       formId
       text
@@ -22,9 +32,9 @@ describe("Questions", () => {
     expect(response).toMatchObject({
       data: {
         question: {
-          formId: 1,
-          id: "1",
-          text: "What is the speed of an unladen swallow"
+          formId: "5daac850b5edec11246c0d62",
+          id: "5daaca0bdf20691272b91850",
+          text: "What is the difference between a duck?"
         }
       }
     });

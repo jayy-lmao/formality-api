@@ -16,7 +16,6 @@ dotenv.config();
 const PORT = 4001;
 const path = "/graphql";
 const app = express();
-const DB_HOST = process.env.TYPEORM_HOST;
 
 const getUserFromReq = (reqWithUser: IGetUserAuthInfoRequest) => {
   return reqWithUser.user;

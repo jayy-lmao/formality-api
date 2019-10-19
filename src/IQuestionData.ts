@@ -1,6 +1,6 @@
 export interface IQuestionData {
-  id: number;
-  formId: number;
+  id: string;
+  formId: string;
   text: string;
   questionType: "short_answer" | "multiple_choice";
 }

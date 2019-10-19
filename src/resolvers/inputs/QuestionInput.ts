@@ -7,8 +7,7 @@ class QuestionInput implements Partial<Question> {
   @Field() 
   @Length(1,255)
   public text: string;
-  @Field() public id: number;
-  @Field() public formId: number;
+  @Field() public formId: string;
   @Field() public questionType: "short_answer" | "multiple_choice";
 }
 

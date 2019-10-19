@@ -1,6 +1,6 @@
 export interface IFormData {
-  id: number;
-  userId: number;
+  id: string;
+  userId: string;
   title: string;
   description: string;
 }

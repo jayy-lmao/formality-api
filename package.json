@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "lint": "tslint --project . --fix",
-    "test": "jest",
+    "test": "ts-node ./test-utils/setup.ts && jest --detectOpenHandles",
     "start": "ts-node-dev --respawn src/index.ts",
-    "cover": "jest --coverage --coverageReporters=text-lcov | coveralls",
+    "cover": "ts-node ./test-utils/setup.ts && jest --coverage --coverageReporters=text-lcov | coveralls",
     "build": "tsc"
   },
   "author": "",
@@ -35,6 +35,7 @@
     "@types/jasmine": "^3.4.4",
     "@types/jest": "^24.0.19",
     "@types/mocha": "^5.2.7",
+    "@types/mongodb": "^3.3.6",
     "@types/node": "^12.7.12",
     "@types/ws": "^6.0.3",
     "chai": "^4.2.0",
