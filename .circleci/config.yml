@@ -37,6 +37,8 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
+        
+      - run: npm rebuild
 
       - run: 
           name: Testing
