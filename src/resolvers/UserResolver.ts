@@ -43,7 +43,7 @@ class UserResolver {
 
     @FieldResolver()
     public forms(@Root() userData: IUserData) {
-        return forms.filter((f) => (f.userId = userData.id));
+        return forms.filter((f) => (f.userId === userData.id));
     }
 
     @Mutation((returns) => User)

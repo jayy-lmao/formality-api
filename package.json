@@ -29,6 +29,7 @@
   "devDependencies": {
     "@types/bcrypt": "^3.0.0",
     "@types/chai": "^4.2.3",
+    "@types/dotenv": "^6.1.1",
     "@types/express": "^4.17.1",
     "@types/express-jwt": "0.0.42",
     "@types/jasmine": "^3.4.4",
@@ -39,6 +40,7 @@
     "chai": "^4.2.0",
     "class-validator": "^0.10.2",
     "coveralls": "^3.0.7",
+    "dotenv": "^8.2.0",
     "jasmine": "^3.5.0",
     "jest": "^24.9.0",
     "mocha": "^6.2.1",

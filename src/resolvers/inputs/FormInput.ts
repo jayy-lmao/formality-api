@@ -13,7 +13,6 @@ class FormInput implements Partial<Form> {
     @Field() 
     @Length(1,255)
     public description: string;
-    // @Field(type => User) public author: User;
 }
 
 export default FormInput;

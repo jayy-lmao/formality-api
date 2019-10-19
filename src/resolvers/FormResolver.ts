@@ -2,6 +2,7 @@ import { Arg, FieldResolver, Mutation, Query, Resolver, Root } from "type-graphq
 import { forms, questions, users } from "../data";
 import { IFormData } from "../IFormData";
 import Form from "../schemas/Form";
+import User from "../schemas/User";
 import FormInput from "./inputs/FormInput";
 
 
@@ -13,7 +14,7 @@ class FormResolver {
         return forms;
     }
 
-    @FieldResolver()
+    @FieldResolver((returns) => User)
     public author(@Root() formData: IFormData) {
         return users.find((u) => u.id === formData.userId);
     }

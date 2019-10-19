@@ -1,14 +1,28 @@
-import { Field, Int, ObjectType } from "type-graphql";
+import { Field, ID, ObjectType } from "type-graphql";
+import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 import Question from "./Question";
 import User from "./User";
 
 @ObjectType()
-class Form {
-  @Field(type => Int) public id: number;
-  @Field() public title: string;
-  @Field() public description: string;
-  @Field(type => [Question]) public questions: Question[];
-  @Field(type => User) public author: User;
+@Entity()
+class Form extends BaseEntity {
+    @PrimaryGeneratedColumn()
+    @Field((type) => ID)
+    public id: number;
+
+    @Column()
+    @Field()
+    public title: string;
+
+    @Column()
+    @Field()
+    public description: string;
+
+    @Field((type) => [ Question ])
+    public questions: Question[];
+
+    @Column()
+    public userId: number;
 }
 
 export default Form;
