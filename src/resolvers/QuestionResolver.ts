@@ -1,36 +1,41 @@
+import { ObjectId } from "bson";
 import { Arg, FieldResolver, Mutation, Query, Resolver, Root } from "type-graphql";
 import { forms, questions } from "../data";
 import { IQuestionData } from "../IQuestionData";
+import Form from "../schemas/Form";
 import Question from "../schemas/Question";
 import QuestionInput from "./inputs/QuestionInput";
 
 @Resolver(() => Question)
 class QuestionResolver {
     @Query(() => [ Question ])
-    public questions(): IQuestionData[] {
-        return questions;
+    public async questions(): Promise<Question[]> {
+        return await Question.find();
     }
-  @Query(returns => Question)
-  public question(@Arg("id") id: number): IQuestionData | undefined {
-    return questions.find(question => question.id === id);
-  }
+
+    @Query((returns) => Question)
+    public async question(@Arg("id") id: string): Promise<Question | undefined> {
+        // return questions.find(question => question.id === id);
+        const objectId = new ObjectId(id);
+        return await Question.findOne({ where: { _id: objectId } });
+    }
 
     @FieldResolver()
-    public form(@Root() questionData: IQuestionData) {
-        return forms.find((f) => f.id === questionData.formId);
+    public async form(@Root() questionData: IQuestionData) {
+        // return forms.find((f) => f.id === questionData.formId);
+        const objectId = new ObjectId(questionData.formId);
+        return await Form.findOne({ where: { _id: objectId } });
     }
 
     @Mutation(() => Question)
-    public createQuestion(@Arg("data") data: QuestionInput): IQuestionData {
-        const { id, text, questionType, formId } = data;
-        const newQuestion: IQuestionData = {
+    public async createQuestion(@Arg("data") data: QuestionInput): Promise<Question> {
+        const { text, questionType, formId } = data;
+        const newQuestion = await Question.create({
             // form,
             formId,
-            id,
             questionType,
             text,
-        };
-        questions.push(newQuestion);
+        }).save();
         return newQuestion;
     }
 }

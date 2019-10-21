@@ -1,12 +1,32 @@
-import { Field, Int, ObjectType } from "type-graphql";
+import { Field, ID, ObjectType } from "type-graphql";
+import { BaseEntity, Column, Entity, ObjectIdColumn } from "typeorm";
 import Form from "./Form";
 
 @ObjectType()
-class User {
-  @Field(type => Int) public id: number;
-  @Field() public email: string;
-  @Field() public password: string;
-  // @Field() public token: string;
-  @Field(type => [Form]) public forms: Form[];
+@Entity()
+class User extends BaseEntity {
+    // @Field((type) => ID)
+    // @PrimaryGeneratedColumn()
+    // public id: number;
+
+    @ObjectIdColumn()
+    @Field()
+    public id!: string;
+  
+    @ObjectIdColumn({ name: 'id' })
+    // tslint:disable-next-line: variable-name
+    public _id!: string;
+
+
+    @Field()
+    @Column("text", { unique: true })
+    public email: string;
+
+    @Field()
+    @Column()
+    public password: string;
+
+    @Field((type) => [ Form ])
+    public forms: Form[];
 }
 export default User;

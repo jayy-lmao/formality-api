@@ -4,8 +4,6 @@ import User from "../../schemas/User";
 
 @InputType()
 class UserInput implements Partial<User> {
-    @Field((type) => Int)
-    public id: number;
     @Field()
     @IsEmail()
     public email: string;

@@ -1,15 +1,18 @@
 // import { GraphQLServer } from "graphql-yoga";
 import { ApolloServer, gql } from "apollo-server-express";
+import dotenv from "dotenv";
 import express from "express";
 import jwt from "express-jwt";
 import "reflect-metadata";
 import { createSchema } from "./createSchema";
 
 import { Request } from "express";
+import { createConnection } from "typeorm";
 export interface IGetUserAuthInfoRequest extends Request {
   user?: string; // or any other type
 }
 
+dotenv.config();
 const PORT = 4001;
 const path = "/graphql";
 const app = express();
@@ -19,6 +22,16 @@ const getUserFromReq = (reqWithUser: IGetUserAuthInfoRequest) => {
 };
 
 (async () => {
+  await createConnection({
+    database: "typegraphql-formality",
+    entities: ["src/schemas/*.ts"],
+    logging: true,
+    ssl: true,
+    synchronize: true,
+    type: "mongodb",
+    url: process.env.TYPEORM_HOST,
+    useUnifiedTopology: true
+  });
   const schema = await createSchema();
   const server = new ApolloServer({
     context: ({ req }) => {
