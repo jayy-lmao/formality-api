@@ -2,6 +2,7 @@ import {} from "jest";
 import "mocha";
 import "reflect-metadata";
 import { Connection } from "typeorm";
+import User from "../src/schemas/User";
 import { gCall } from "../test-utils/gCall";
 import { testConnection } from "../test-utils/test-connection";
 
@@ -14,27 +15,30 @@ afterAll(async () => {
 });
 
 const questionById = `
-query {
-    question(id: "5daaca0bdf20691272b91850") {
+query ($id: String!) {
+    user(id: $id) {
       id
-      formId
-      text
+      email
     }
   }
 `;
 
-describe("Questions", () => {
-  it("Get question by ID", async () => {
+describe("Users", () => {
+  it("Can find user by ID", async () => {
+    const user = await User.create({
+      email: "tweedledee@tweedle.dee",
+      password: "tweedledee"
+    }).save();
+    const idString = user.id.toString();
     const response = await gCall({
-      source: questionById
-      // variableValues: { id: 1},
+      source: questionById,
+      variableValues: { id: idString }
     });
     expect(response).toMatchObject({
       data: {
-        question: {
-          formId: "5daac850b5edec11246c0d62",
-          id: "5daaca0bdf20691272b91850",
-          text: "What is the difference between a duck?"
+        user: {
+          email: user.email,
+          id: idString
         }
       }
     });

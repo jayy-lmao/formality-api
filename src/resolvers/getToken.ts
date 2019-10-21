@@ -1,8 +1,8 @@
 import { compare } from "bcrypt";
 import jwt from "jsonwebtoken";
-import { IUserData } from "./UserResolver";
+import User from "../schemas/User";
 
-export const getToken = (user: IUserData | undefined, password: string): Promise<string> => {
+export const getToken = (user: User | undefined, password: string): Promise<string> => {
     return new Promise(async (resolve, reject) => {
         if (user) {
             await compare(password, user.password, (err, isMatch) => {

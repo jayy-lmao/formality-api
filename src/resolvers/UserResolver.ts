@@ -13,14 +13,6 @@ export interface IUserData {
     password: string;
 }
 
-const users: IUserData[] = [
-    {
-        email: "Steven@steven.steven",
-        id: "1",
-        password: "hlfahsdflj",
-    },
-];
-
 @Resolver((of) => User)
 class UserResolver {
     private saltRounds = 10;
@@ -38,7 +30,7 @@ class UserResolver {
 
     @Query((type) => String)
     public async login(@Arg("email") email: string, @Arg("password") password: string): Promise<string> {
-        const user = users.find((u) => u.email === email);
+        const user = await User.findOne({where:{email}});
         const token = await getToken(user, password);
         return token;
     }

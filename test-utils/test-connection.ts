@@ -6,7 +6,7 @@ export const testConnection = (drop: boolean = false) => {
   return createConnection({
     database: "typegraphql-formality-test",
     dropSchema: drop,
-    entities: ["../src/schemas/*.ts"],
+    entities: ["src/schemas/*.ts"],
     logging: true,
     ssl: true,
     synchronize: drop,
