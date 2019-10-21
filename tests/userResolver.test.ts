@@ -30,7 +30,7 @@ describe("Users", () => {
       password: "tweedledee"
     }).save();
     const idString = user.id.toString();
-    console.log("About to wait for response")
+    console.log("About to wait for response");
     const response = await gCall({
       source: questionById,
       variableValues: { id: idString }
