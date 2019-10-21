@@ -4,6 +4,7 @@ import "mocha";
 import "reflect-metadata";
 import { getToken } from "../src/resolvers/getToken";
 import UserInput from "../src/resolvers/inputs/UserInput";
+import bcrypt from "bcrypt";
 
 const testPassword = "yeetus";
 const email = "criken@criken.criken";
@@ -27,5 +28,22 @@ describe("Tokens", () => {
     expect(getToken(user, "not the correct password")).rejects.toEqual(
       errorMessage
     );
+  });
+  it("Hashing error", async () => {
+    //  jest.fn((user, password) => {throw new Error("hashing error")});
+    const bcryptError = "Mocked Bcrypt compare error";
+    const mock = jest.spyOn(bcrypt, "compare");
+    mock.mockImplementation((a, b, callback) => {
+      const err = new Error(bcryptError);
+      // tslint:disable-next-line: no-unused-expression
+      callback && callback(err, true);
+      return new Promise(() => true);
+    });
+    const password = await hash(testPassword, 5);
+    const user: UserInput = { email, password };
+    expect(getToken(user, testPassword)).rejects.toEqual(
+      new Error(bcryptError)
+    );
+    mock.mockRestore();
   });
 });

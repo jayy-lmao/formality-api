@@ -23,6 +23,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.3.3",
     "morgan": "^1.9.1",
+    "ts-mock-imports": "^1.2.6",
     "type-graphql": "^0.17.5",
     "typeorm": "^0.2.20"
   },

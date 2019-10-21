@@ -9,7 +9,7 @@ export const getToken = (user: UserInput | undefined, password: string): Promise
         if (user) {
             await compare(password, user.password, (err, isMatch) => {
                 if (err) {
-                    throw err;
+                    reject(err);
                 }
                 if (!isMatch) {
                     reject(errorMessage);
