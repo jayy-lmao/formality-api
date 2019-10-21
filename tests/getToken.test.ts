@@ -9,11 +9,16 @@ const testPassword = "yeetus";
 const email = "criken@criken.criken";
 
 describe("Tokens", () => {
-  test("Get JWT token", async () => {
+  it("Get JWT token", async () => {
     const password = await hash(testPassword, 5);
     const user: UserInput = { email, password };
     const token = await getToken(user, testPassword);
     expect(token).toBeTruthy();
+  });
+  it("No user", async () => {
+    const password = await hash(testPassword, 5);
+    const errorMessage = { error: "Wrong username or password" };
+    expect(getToken(undefined, password)).rejects.toEqual(errorMessage);
   });
   it("No token for wrong deets", async () => {
     const errorMessage = { error: "Wrong username or password" };
