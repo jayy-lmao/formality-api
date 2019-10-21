@@ -1,3 +1,5 @@
 import { testConnection } from "./test-connection";
+// const testConnection =  require("./test-connection");
+import { Connection } from "typeorm";
 
-testConnection(true).then(() => process.exit());
+export default testConnection(true).then(() => process.exit());

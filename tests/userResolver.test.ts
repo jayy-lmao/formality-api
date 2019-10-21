@@ -6,15 +6,36 @@ import User from "../src/schemas/User";
 import { gCall } from "../test-utils/gCall";
 import { testConnection } from "../test-utils/test-connection";
 
+let testId: string;
 let conn: Connection;
+const testEmail = "tweedledee@tweedle.dee";
+const testEmail2 = "tweedledum@tweedle.dum";
+
 beforeAll(async () => {
   conn = await testConnection();
+  const user = await User.create({
+    email: testEmail,
+    password: "tweedledee"
+  }).save();
+  testId = user.id.toString();
 });
 afterAll(async () => {
-  await conn.close();
+  User.delete({});
+  // await conn.close();
 });
 
-const questionById = `
+const createUser = `
+mutation ($email: String!){
+  createUser(data:{
+    email: $email
+    password: Hunter2
+  }){
+    email
+    id
+  }
+}`;
+
+const userById = `
 query ($id: String!) {
     user(id: $id) {
       id
@@ -25,24 +46,29 @@ query ($id: String!) {
 
 describe("Users", () => {
   it("Can find user by ID", async () => {
-    const user = await User.create({
-      email: "tweedledee@tweedle.dee",
-      password: "tweedledee"
-    }).save();
-    const idString = user.id.toString();
-    console.log("About to wait for response");
+    // jest.setTimeout(100000);
     const response = await gCall({
-      source: questionById,
-      variableValues: { id: idString }
+      source: userById,
+      variableValues: { id: testId }
     });
-    console.log("Got response");
     expect(response).toMatchObject({
       data: {
         user: {
-          email: user.email,
-          id: idString
+          email: testEmail,
+          id: testId
         }
       }
     });
+  });
+
+  it("Can create a user", async () => {
+    // jest.setTimeout(100000);
+    const response = await gCall({
+      source: createUser,
+      variableValues: {
+        email: testEmail2
+      }
+    });
+    expect(response).toBeTruthy();
   });
 });

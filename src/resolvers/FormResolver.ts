@@ -14,6 +14,13 @@ class FormResolver {
         return await Form.find();
     }
 
+    @Query((returns) => Form)
+    public async form(@Arg("id") id: string): Promise<Form | undefined> {
+        const objectId = new ObjectId(id);
+        return await Form.findOne({ where: { _id: objectId } });
+    }
+
+
     @FieldResolver((returns) => User)
     public async author(@Root() formData: IFormData) {
         // return users.find((u) => u.id === formData.userId);
