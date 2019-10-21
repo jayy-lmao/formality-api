@@ -35,6 +35,7 @@ describe("Users", () => {
       source: questionById,
       variableValues: { id: idString }
     });
+    console.log("Got response");
     expect(response).toMatchObject({
       data: {
         user: {
