@@ -10,6 +10,7 @@ class UserInput implements Partial<User> {
     @Field() 
     @MinLength(5)
     public password: string;
+    public id?: string;
 }
 
 export default UserInput;

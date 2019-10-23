@@ -1,10 +1,10 @@
 import { hash } from "bcrypt";
+import bcrypt from "bcrypt";
 import {} from "jest";
 import "mocha";
 import "reflect-metadata";
 import { getToken } from "../src/resolvers/getToken";
 import UserInput from "../src/resolvers/inputs/UserInput";
-import bcrypt from "bcrypt";
 
 const testPassword = "yeetus";
 const email = "criken@criken.criken";

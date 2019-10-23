@@ -4,7 +4,6 @@ import Form from "../../schemas/Form";
 
 @InputType()
 class FormInput implements Partial<Form> {
-    @Field() public userId: string;
     @Field() 
     @Length(1,32)
     public title: string;

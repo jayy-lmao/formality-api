@@ -27,11 +27,18 @@ class Question extends BaseEntity {
 
     @Column()
     @Field()
-    public questionType: string;
+    public questionType: 'short_answer' | 'multiple_choice';
 
     @Column()
     @Field((type) => Form)
     public form: string;
+
+    @Column()
+    public userId: string;
+
+    @Column()
+    @Field((type) => [String])
+    public options?: string[];
 }
 
 export default Question;

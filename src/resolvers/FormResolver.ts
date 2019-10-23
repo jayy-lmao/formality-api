@@ -1,17 +1,31 @@
 import { ObjectId } from "mongodb";
-import { Arg, FieldResolver, Mutation, Query, Resolver, Root } from "type-graphql";
-import { forms, questions, users } from "../data";
+import { Arg, Authorized, Ctx, FieldResolver, Mutation, Query, Resolver, Root } from "type-graphql";
 import { IFormData } from "../IFormData";
 import Form from "../schemas/Form";
 import Question from "../schemas/Question";
 import User from "../schemas/User";
 import FormInput from "./inputs/FormInput";
 
-@Resolver((of) => Form)
+interface IContext {
+    req: Request;
+    user?: User;
+}
+
+@Resolver(() => Form)
 class FormResolver {
+    // @Query(() => [ Form ])
+    // public async forms(): Promise<Form[]> {
+    //     return await Form.find();
+    // }
+
+    @Authorized()
     @Query((returns) => [ Form ])
-    public async forms(): Promise<Form[]> {
-        return await Form.find();
+    public async forms(@Ctx() ctx: IContext): Promise<Form[]> {
+        if (ctx.user) {
+            const { id } = ctx.user;
+            return await Form.find({ where: { userId: id } });
+        }
+        return [];
     }
 
     @Query((returns) => Form)
@@ -20,7 +34,6 @@ class FormResolver {
         return await Form.findOne({ where: { _id: objectId } });
     }
 
-
     @FieldResolver((returns) => User)
     public async author(@Root() formData: IFormData) {
         // return users.find((u) => u.id === formData.userId);
@@ -28,20 +41,25 @@ class FormResolver {
         return await User.findOne({ where: { _id: objectId } });
     }
 
+    @Authorized()
     @Mutation((returns) => Form)
-    public async createForm(@Arg("data") data: FormInput): Promise<Form> {
-        const { description, userId, title } = data;
-        const newForm = await Form.create({
-            description,
-            title,
-            userId,
-        }).save();
-        // await forms.push(newForm);
-        return newForm;
+    public async createForm(@Arg("data") data: FormInput, @Ctx() ctx: IContext): Promise<Form> {
+        if (ctx.user) {
+            const {user} = ctx;
+            const { id } = ctx.user;
+            const { description, title } = data;
+            const newForm = await Form.create({
+                description,
+                title,
+                userId: id,
+            }).save();
+            return newForm;
+        }
+        throw new Error("Not logged in");
     }
     @FieldResolver()
     public questions(@Root() formData: IFormData) {
-        return Question.find({ where: {formId: formData.id}});
+        return Question.find({ where: { formId: formData.id } });
     }
 }
 
