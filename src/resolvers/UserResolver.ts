@@ -15,7 +15,21 @@ export interface IUserData {
 
 @Resolver((of) => User)
 class UserResolver {
-    private saltRounds = 10;
+
+    @Mutation((returns) => User)
+    public static async createUser(@Arg("data") data: UserInput): Promise<User> {
+        const { email, password: plaintext } = data;
+        const password = await hash(plaintext, this.saltRounds);
+        const newUser = await User.create({
+            email,
+            password,
+        }).save();
+        // users.push(newUser);
+        return newUser;
+    }
+
+    private static saltRounds = 10;
+
 
     @Query((returns) => [ User ])
     public async users(): Promise<User[]> {
@@ -40,17 +54,6 @@ class UserResolver {
         return forms.filter((f) => f.userId === userData.id);
     }
 
-    @Mutation((returns) => User)
-    public async createUser(@Arg("data") data: UserInput): Promise<User> {
-        const { email, password: plaintext } = data;
-        const password = await hash(plaintext, this.saltRounds);
-        const newUser = await User.create({
-            email,
-            password,
-        }).save();
-        // users.push(newUser);
-        return newUser;
-    }
 }
 
 export default UserResolver;

@@ -6,20 +6,13 @@ import jwt from "express-jwt";
 import "reflect-metadata";
 import { createSchema } from "./createSchema";
 
-import { Request } from "express";
 import { createConnection } from "typeorm";
-export interface IGetUserAuthInfoRequest extends Request {
-  user?: string; // or any other type
-}
+import { getUserFromReq } from "./userFromReq";
 
 dotenv.config();
 const PORT = 4001;
 const path = "/graphql";
 const app = express();
-
-const getUserFromReq = (reqWithUser: IGetUserAuthInfoRequest) => {
-  return reqWithUser.user;
-};
 
 (async () => {
   await createConnection({
@@ -36,6 +29,7 @@ const getUserFromReq = (reqWithUser: IGetUserAuthInfoRequest) => {
   const server = new ApolloServer({
     context: ({ req }) => {
       const user = getUserFromReq(req);
+      // console.log(user)
       const context = {
         req,
         user
@@ -46,11 +40,6 @@ const getUserFromReq = (reqWithUser: IGetUserAuthInfoRequest) => {
     schema
   });
 
-  const options = {
-    endpoint: "/graphql",
-    playground: "/playground",
-    port: PORT
-  };
   // Mount a jwt or other authentication middleware that is run before the GraphQL execution
   app.use(
     path,

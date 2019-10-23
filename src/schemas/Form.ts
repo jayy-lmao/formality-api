@@ -18,12 +18,12 @@ class Form extends BaseEntity {
     public _id!: string;
 
 
-    @Column()
     @Field()
+    @Column()
     public title: string;
 
-    @Column()
     @Field()
+    @Column()
     public description: string;
 
     @Field((type) => [ Question ])
