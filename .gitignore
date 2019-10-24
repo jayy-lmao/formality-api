@@ -1,4 +1,4 @@
-docs_deploy*
+rsa*
 node_modules
 .vscode
 dist
