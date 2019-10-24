@@ -51,7 +51,6 @@ jobs:
        - run:
           name: Build docs
           command: npm run docs
+      - run: npx tsc
       - persist_to_workspace:
           root: docs/
-
-      - run: npx tsc
