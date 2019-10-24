@@ -48,5 +48,17 @@ jobs:
       - run: 
           name: Linting
           command: npm run lint
+      - run:
+          name: Install and configure dependencies
+          command: |
+            npm install -g --silent gh-pages@2.0.1
+            git config user.email "ci-build@jayylmao.net"
+            git config user.name "ci-build"
+      - add_ssh_keys:
+          fingerprints:
+            - "8f:17:96:23:2e:ca:4b:dc:27:78:03:17:d7:31:7f:cc"
+      - run:
+          name: Deploy docs to gh-pages
+          command: gh-pages --dotfiles --dist docs/
 
       - run: npx tsc

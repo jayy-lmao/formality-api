@@ -1,3 +1,4 @@
+docs_deploy*
 node_modules
 .vscode
 dist
