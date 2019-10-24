@@ -21,8 +21,17 @@ export interface IUserData {
   password: string;
 }
 
+/*
+* UserResolver is responsible for graphql queries involving users.
+*/
 @Resolver(of => User)
 class UserResolver {
+  /**
+ * Creates a user.
+ * @remarks This method uses type-graphql annotations.
+ * @param data - User
+ * @returns The user which is created.
+ */
   @Mutation(returns => User)
   public static async createUser(@Arg("data") data: UserInput): Promise<User> {
     const { email, password: plaintext } = data;
@@ -31,7 +40,6 @@ class UserResolver {
       email,
       password
     }).save();
-    // users.push(newUser);
     return newUser;
   }
 

@@ -48,6 +48,10 @@ jobs:
       - run: 
           name: Linting
           command: npm run lint
-
+       - run:
+          name: Build docs
+          command: npm run docs
+      - persist_to_workspace:
+          root: docs/
 
       - run: npx tsc
