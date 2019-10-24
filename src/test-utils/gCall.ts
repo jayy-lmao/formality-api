@@ -1,8 +1,8 @@
 import { graphql, GraphQLSchema } from "graphql";
 import Maybe from "graphql/tsutils/Maybe";
 
-import { createSchema } from "../src/createSchema";
-import UserInput from "../src/resolvers/inputs/UserInput";
+import { createSchema } from "../createSchema";
+import UserInput from "../resolvers/inputs/UserInput";
 
 interface IOptions {
   source: string;

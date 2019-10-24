@@ -1,7 +1,7 @@
 import {} from "jest";
 import "mocha";
 import "reflect-metadata";
-import { createSchema } from "../src/createSchema";
+import { createSchema } from "../createSchema";
 
 describe("Tokens", () => {
   it("Get JWT token", async () => {

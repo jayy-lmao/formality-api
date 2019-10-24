@@ -2,7 +2,7 @@ import {} from "jest";
 import "mocha";
 import "reflect-metadata";
 import { Connection } from "typeorm";
-import User from "../src/schemas/User";
+import User from "../schemas/User";
 import { gCall } from "../test-utils/gCall";
 import { testConnection } from "../test-utils/test-connection";
 
@@ -46,7 +46,6 @@ query ($id: String!) {
 
 describe("Users", () => {
   it("Can find user by ID", async () => {
-    // jest.setTimeout(100000);
     const response = await gCall({
       source: userById,
       variableValues: { id: testId }
@@ -62,7 +61,6 @@ describe("Users", () => {
   });
 
   it("Can create a user", async () => {
-    // jest.setTimeout(100000);
     const response = await gCall({
       source: createUser,
       variableValues: {

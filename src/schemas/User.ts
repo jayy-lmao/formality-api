@@ -5,28 +5,27 @@ import Form from "./Form";
 @ObjectType()
 @Entity()
 class User extends BaseEntity {
-    // @Field((type) => ID)
-    // @PrimaryGeneratedColumn()
-    // public id: number;
+  // @Field((type) => ID)
+  // @PrimaryGeneratedColumn()
+  // public id: number;
 
-    @ObjectIdColumn()
-    @Field()
-    public id!: string;
-  
-    @ObjectIdColumn({ name: 'id' })
-    // tslint:disable-next-line: variable-name
-    public _id!: string;
+  @ObjectIdColumn()
+  @Field()
+  public id!: string;
 
+  @ObjectIdColumn({ name: "id" })
+  // tslint:disable-next-line: variable-name
+  public _id!: string;
 
-    @Field()
-    @Column("text", { unique: true })
-    public email: string;
+  @Field()
+  @Column("text", { unique: true })
+  public email: string;
 
-    @Field()
-    @Column()
-    public password: string;
+  @Field()
+  @Column()
+  public password: string;
 
-    @Field((type) => [ Form ])
-    public forms: Form[];
+  @Field(type => [Form])
+  public forms: Form[];
 }
 export default User;

@@ -3,11 +3,22 @@ import bcrypt from "bcrypt";
 import {} from "jest";
 import "mocha";
 import "reflect-metadata";
-import { getToken } from "../src/resolvers/getToken";
-import UserInput from "../src/resolvers/inputs/UserInput";
+import { getToken } from "../resolvers/getToken";
+import UserInput from "../resolvers/inputs/UserInput";
+import UserResolver from "../resolvers/UserResolver";
+import { testConnection } from "../test-utils/test-connection";
 
 const testPassword = "yeetus";
 const email = "criken@criken.criken";
+
+let conn;
+let testUserId: string;
+
+beforeAll(async () => {
+  conn = await testConnection();
+  const user = await UserResolver.createUser({ email, password: testPassword });
+  testUserId = user.id;
+});
 
 describe("Tokens", () => {
   it("Get JWT token", async () => {

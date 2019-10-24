@@ -1,10 +1,8 @@
 import {} from "jest";
 import "mocha";
 import "reflect-metadata";
-import { Connection } from "typeorm";
-// import User from "../src/schemas/User";
-import UserResolver from "../src/resolvers/UserResolver";
-import Form from "../src/schemas/Form";
+import UserResolver from "../resolvers/UserResolver";
+import Form from "../schemas/Form";
 import { gCall } from "../test-utils/gCall";
 import { testConnection } from "../test-utils/test-connection";
 
@@ -29,20 +27,13 @@ query ($email: String!, $password: String!) {
 
 beforeAll(async () => {
   conn = await testConnection();
-  // await User.create(testFormMaker).save();
   const user = await UserResolver.createUser(testFormMaker);
   testUserId = user.id;
-  // const res = await gCall({
-  //   source: login,
-  //   variableValues: testFormMaker
-  // })
-  // token = res.data && res.data.login || '';
   const form = await Form.create(testForm).save();
   testId = form.id.toString();
 });
 afterAll(async () => {
   Form.delete({});
-  // await conn.close();
 });
 
 const createForm = `
@@ -70,6 +61,7 @@ describe("Forms", () => {
   it("Can find form by ID", async () => {
     const response = await gCall({
       source: formById,
+      user: { ...testFormMaker, id: testUserId },
       variableValues: { id: testId }
     });
     expect(response).toMatchObject({
@@ -83,7 +75,6 @@ describe("Forms", () => {
   });
 
   it("Can create a form", async () => {
-    // console.log({token})
     const response = await gCall({
       source: createForm,
       user: { ...testFormMaker, id: testUserId },
@@ -91,7 +82,6 @@ describe("Forms", () => {
         data: testForm
       }
     });
-    // console.log({response})
     expect(response.data).toBeTruthy();
   });
 });

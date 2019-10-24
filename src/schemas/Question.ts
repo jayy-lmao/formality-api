@@ -1,44 +1,50 @@
 import { Field, ID, ObjectType } from "type-graphql";
-import { BaseEntity, Column, Entity, ObjectIdColumn, PrimaryGeneratedColumn } from "typeorm";
+import {
+  BaseEntity,
+  Column,
+  Entity,
+  ObjectIdColumn,
+  PrimaryGeneratedColumn
+} from "typeorm";
 import Form from "./Form";
 
 @ObjectType()
 @Entity()
 class Question extends BaseEntity {
-    // @PrimaryGeneratedColumn()
-    // @Field((type) => ID)
-    // public id: number;
+  // @PrimaryGeneratedColumn()
+  // @Field((type) => ID)
+  // public id: number;
 
-    @ObjectIdColumn()
-    @Field()
-    public id!: string;
-  
-    @ObjectIdColumn({ name: 'id' })
-    // tslint:disable-next-line: variable-name
-    public _id!: string;
+  @ObjectIdColumn()
+  @Field()
+  public id!: string;
 
-    @Column()
-    @Field()
-    public formId: string;
+  @ObjectIdColumn({ name: "id" })
+  // tslint:disable-next-line: variable-name
+  public _id!: string;
 
-    @Column()
-    @Field()
-    public text: string;
+  @Column()
+  @Field()
+  public formId: string;
 
-    @Column()
-    @Field()
-    public questionType: 'short_answer' | 'multiple_choice';
+  @Column()
+  @Field()
+  public text: string;
 
-    @Column()
-    @Field((type) => Form)
-    public form: string;
+  @Column()
+  @Field()
+  public questionType: "short_answer" | "multiple_choice";
 
-    @Column()
-    public userId: string;
+  @Column()
+  @Field(type => Form)
+  public form: string;
 
-    @Column()
-    @Field((type) => [String])
-    public options?: string[];
+  @Column()
+  public userId: string;
+
+  @Column()
+  @Field(type => [String])
+  public options?: string[];
 }
 
 export default Question;
