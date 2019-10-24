@@ -9,7 +9,7 @@
     "start": "ts-node-dev --respawn src/index.ts",
     "cover": "ts-node ./src//test-utils/setup.ts && jest --coverage --coverageReporters=text-lcov | coveralls && ts-node ./src/test-utils/teardown.ts",
     "build": "tsc",
-    "docs": "npx typedoc --out docs ./src --exclude \"./src/test*\""
+    "docs": "npx typedoc --out docs ./src --exclude \"./src/test*\" && touch ./docs/.nojekyll"
   },
   "author": "",
   "license": "ISC",
