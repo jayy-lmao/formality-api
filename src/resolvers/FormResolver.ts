@@ -13,12 +13,8 @@ import { IFormData } from "../IFormData";
 import Form from "../schemas/Form";
 import Question from "../schemas/Question";
 import User from "../schemas/User";
+import { IContext } from "./IContext";
 import FormInput from "./inputs/FormInput";
-
-interface IContext {
-  req: Request;
-  user: User;
-}
 
 @Resolver(() => Form)
 class FormResolver {
