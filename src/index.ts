@@ -5,6 +5,7 @@ import express from "express";
 import jwt from "express-jwt";
 import "reflect-metadata";
 import { createSchema } from "./createSchema";
+import morgan from 'morgan';
 
 import { createConnection } from "typeorm";
 import { getUserFromReq } from "./userFromReq";
@@ -47,6 +48,9 @@ const app = express();
       credentialsRequired: false,
       secret: process.env.JWT_SECRET || "something_is_better_than_nothing"
     })
+  );
+  app.use(
+    morgan('dev')
   );
   server.applyMiddleware({ app, path });
 
