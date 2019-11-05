@@ -2,6 +2,7 @@ import { ObjectId } from "mongodb";
 import {
   Arg,
   Authorized,
+  Ctx,
   FieldResolver,
   Mutation,
   Query,
@@ -12,6 +13,7 @@ import { forms, questions } from "../data";
 import { IQuestionData } from "../IQuestionData";
 import Form from "../schemas/Form";
 import Question from "../schemas/Question";
+import { IContext } from "./IContext";
 import QuestionInput from "./inputs/QuestionInput";
 
 @Resolver(() => Question)
@@ -35,19 +37,21 @@ class QuestionResolver {
     return await Form.findOne({ where: { _id: objectId } });
   }
 
-  @Mutation(() => Question)
-  public async createQuestion(
-    @Arg("data") data: QuestionInput
-  ): Promise<Question> {
-    const { text, questionType, formId } = data;
+    @Authorized()
+    @Mutation((returns) => Question)
+    public async createQuestion(@Arg("data") data: QuestionInput, @Ctx() ctx: IContext): Promise<Question> {
+    const { user } = ctx;
+    const { id } = ctx.user;
+    const { text, questionType, formId, options } = data;
     const newQuestion = await Question.create({
-      // form,
       formId,
+      options,
       questionType,
-      text
+      text,
+      userId: id
     }).save();
     return newQuestion;
-  }
+    }
 }
 
 export default QuestionResolver;

@@ -11,4 +11,4 @@ export const configDB = async () => {
     url: process.env.TYPEORM_HOST,
     useUnifiedTopology: true
   });
-}
+};

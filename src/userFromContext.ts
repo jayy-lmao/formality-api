@@ -1,6 +1,6 @@
 import { getUserFromReq, IGetUserAuthInfoRequest } from "./userFromReq";
 export const getUserFromContext = () => {
-  return ({req} : { req: IGetUserAuthInfoRequest}) => {
+  return ({ req }: { req: IGetUserAuthInfoRequest }) => {
     const user = getUserFromReq(req);
     const context = {
       req,
@@ -8,4 +8,4 @@ export const getUserFromContext = () => {
     };
     return context;
   };
-}
+};
