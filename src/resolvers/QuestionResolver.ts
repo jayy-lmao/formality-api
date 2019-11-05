@@ -18,10 +18,17 @@ import QuestionInput from "./inputs/QuestionInput";
 
 @Resolver(() => Question)
 class QuestionResolver {
-  @Query(() => [Question])
-  public async questions(): Promise<Question[]> {
-    return await Question.find();
-  }
+  // @Query(() => [Question])
+  // public async questions(): Promise<Question[]> {
+  //   return await Question.find();
+  // }
+
+    @Authorized()
+    @Query((returns) => [ Form ])
+    public async questions(@Ctx() ctx: IContext): Promise<Question[]> {
+        const { id } = ctx.user;
+        return await Question.find({ where: { userId: id } });
+    }
 
   @Query(returns => Question)
   public async question(@Arg("id") id: string): Promise<Question | undefined> {
