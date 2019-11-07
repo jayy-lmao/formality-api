@@ -1,8 +1,10 @@
 {
   "compilerOptions": {
     "types": [
-      "node"
+      "node",
+      "react"
     ],
+    "jsx":"react",
     "target": "es2016",
     "module": "commonjs",
     "lib": [
