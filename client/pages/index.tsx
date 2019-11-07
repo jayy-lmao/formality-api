@@ -1,5 +1,5 @@
 import Link from "next/link";
-import UserList from "./UserList";
+import UserList from "../components/UserList";
 
 const Home = () => {
   return (

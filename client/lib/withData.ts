@@ -7,19 +7,34 @@ const endpoint = 'http://localhost:4000/graphql';
 const cache = new InMemoryCache();
 
 
+// const createClient = ({ headers }: { headers?: any }) => {
+//   return new ApolloClient({
+//     request: operation => {
+//       operation.setContext({
+//         fetchOptions: {
+//           credentials: 'include',
+//         },
+//         headers,
+//       });
+//     },
+//     uri: process.env.NODE_ENV === 'development' ? endpoint : endpoint,
+//     cache
+//   });
+// }
+
 const createClient = ({ headers }: { headers?: any }) => {
   return new ApolloClient({
-    request: operation => {
+    request: (operation) => {
+      const token = localStorage.getItem('ACCESS_TOKEN');
       operation.setContext({
-        fetchOptions: {
-          credentials: 'include',
-        },
-        headers,
-      });
+        headers: {
+          authorization: token ? `Bearer ${token}` : ''
+        }
+      })
     },
     uri: process.env.NODE_ENV === 'development' ? endpoint : endpoint,
     cache
-  });
+  })
 }
 
 export default withApollo(createClient);

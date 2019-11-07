@@ -201,17 +201,30 @@ __webpack_require__.r(__webpack_exports__);
  // import { endpoint } from '../config';
 
 var endpoint = 'http://localhost:4000/graphql';
-var cache = new apollo_boost__WEBPACK_IMPORTED_MODULE_0__["InMemoryCache"]();
+var cache = new apollo_boost__WEBPACK_IMPORTED_MODULE_0__["InMemoryCache"](); // const createClient = ({ headers }: { headers?: any }) => {
+//   return new ApolloClient({
+//     request: operation => {
+//       operation.setContext({
+//         fetchOptions: {
+//           credentials: 'include',
+//         },
+//         headers,
+//       });
+//     },
+//     uri: process.env.NODE_ENV === 'development' ? endpoint : endpoint,
+//     cache
+//   });
+// }
 
 var createClient = function createClient(_ref) {
   var headers = _ref.headers;
   return new apollo_boost__WEBPACK_IMPORTED_MODULE_0__["default"]({
     request: function request(operation) {
+      var token = localStorage.getItem('ACCESS_TOKEN');
       operation.setContext({
-        fetchOptions: {
-          credentials: 'include'
-        },
-        headers: headers
+        headers: {
+          authorization: token ? "Bearer ".concat(token) : ''
+        }
       });
     },
     uri:  true ? endpoint : undefined,
