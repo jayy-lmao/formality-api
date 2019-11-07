@@ -11,7 +11,6 @@ import Form from "./Form";
 @ObjectType()
 @Entity()
 class Question extends BaseEntity {
-
   @ObjectIdColumn()
   @Field()
   public id!: string;
@@ -40,7 +39,7 @@ class Question extends BaseEntity {
   public userId: string;
 
   @Column()
-  @Field(type => [String], {nullable: true})
+  @Field(type => [String], { nullable: true })
   public options?: string[];
 }
 

@@ -23,12 +23,12 @@ class QuestionResolver {
   //   return await Question.find();
   // }
 
-    @Authorized()
-    @Query((returns) => [ Form ])
-    public async questions(@Ctx() ctx: IContext): Promise<Question[]> {
-        const { id } = ctx.user;
-        return await Question.find({ where: { userId: id } });
-    }
+  @Authorized()
+  @Query(returns => [Form])
+  public async questions(@Ctx() ctx: IContext): Promise<Question[]> {
+    const id = (ctx.req as any).session.userId;
+    return await Question.find({ where: { userId: id } });
+  }
 
   @Query(returns => Question)
   public async question(@Arg("id") id: string): Promise<Question | undefined> {
@@ -44,11 +44,13 @@ class QuestionResolver {
     return await Form.findOne({ where: { _id: objectId } });
   }
 
-    @Authorized()
-    @Mutation((returns) => Question)
-    public async createQuestion(@Arg("data") data: QuestionInput, @Ctx() ctx: IContext): Promise<Question> {
-    const { user } = ctx;
-    const { id } = ctx.user;
+  @Authorized()
+  @Mutation(returns => Question)
+  public async createQuestion(
+    @Arg("data") data: QuestionInput,
+    @Ctx() ctx: IContext
+  ): Promise<Question> {
+    const id = (ctx.req as any).session.userId;
     const { text, questionType, formId, options } = data;
     const newQuestion = await Question.create({
       formId,
@@ -58,7 +60,7 @@ class QuestionResolver {
       userId: id
     }).save();
     return newQuestion;
-    }
+  }
 }
 
 export default QuestionResolver;

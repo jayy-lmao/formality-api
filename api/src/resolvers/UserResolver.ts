@@ -4,6 +4,7 @@ import { ObjectId } from "mongodb";
 import {
   Arg,
   Authorized,
+  Ctx,
   FieldResolver,
   Mutation,
   Query,
@@ -13,6 +14,7 @@ import {
 import { forms } from "../data";
 import User from "../schemas/User";
 import { getToken } from "./getToken";
+import { IContext } from "./IContext";
 import UserInput from "./inputs/UserInput";
 
 export interface IUserData {
@@ -45,6 +47,14 @@ class UserResolver {
 
   private static saltRounds = 10;
 
+  @Query(returns => User, { nullable: true })
+  public async me(@Ctx() ctx: IContext): Promise<User | undefined> {
+    const userId = (ctx.req as any).session.userId;
+    return userId
+      ? await User.findOne({ where: { _id: new ObjectId(userId) } })
+      : undefined;
+  }
+
   @Query(returns => [User])
   public async users(): Promise<User[]> {
     return await User.find();
@@ -56,19 +66,35 @@ class UserResolver {
     return "alive";
   }
 
+  @Mutation(type => Boolean)
+  public async logout(@Ctx() ctx: IContext) {
+    return new Promise((res, rej) => {
+      (ctx.req as any).session!.destroy((err: Error) => {
+        if (err) {
+          return rej(false);
+        }
+        (ctx.res as any).clearCookie("qid");
+        return res(true);
+      });
+    });
+  }
+
   @Query(returns => User)
   public async user(@Arg("id") id: string): Promise<User | undefined> {
     const objectId = new ObjectId(id);
     return await User.findOne({ where: { _id: objectId } });
   }
 
-  @Query(type => String)
+  @Mutation(type => String)
   public async login(
     @Arg("email") email: string,
-    @Arg("password") password: string
+    @Arg("password") password: string,
+    @Ctx() ctx: IContext
   ): Promise<string> {
     const user = await User.findOne({ where: { email } });
     const token = await getToken(user, password);
+    (ctx.req as any).session.userId = user && user.id;
+    console.log((ctx.req as any).session.userId);
     return token;
   }
 
