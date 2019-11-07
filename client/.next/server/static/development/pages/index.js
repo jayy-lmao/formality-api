@@ -108,7 +108,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! graphql-tag */ "graphql-tag");
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_2__);
-var _jsxFileName = "/Users/james/Documents/formality-api/client/components/UserList.tsx";
+var _jsxFileName = "/home/jayy-lmao/Frameworks/Graphql/formality/client/components/UserList.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -1890,7 +1890,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_UserList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/UserList */ "./components/UserList.tsx");
-var _jsxFileName = "/Users/james/Documents/formality-api/client/pages/index.tsx";
+var _jsxFileName = "/home/jayy-lmao/Frameworks/Graphql/formality/client/pages/index.tsx";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -1942,7 +1942,7 @@ const Home = () => {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/james/Documents/formality-api/client/pages/index.tsx */"./pages/index.tsx");
+module.exports = __webpack_require__(/*! /home/jayy-lmao/Frameworks/Graphql/formality/client/pages/index.tsx */"./pages/index.tsx");
 
 
 /***/ }),

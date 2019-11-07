@@ -13,16 +13,24 @@ const PORT = 4001;
 const path = "/graphql";
 
 (async () => {
-    await configDB();
-    const schema = await createSchema();
-    const server = new ApolloServer({
-        // context: getUserFromContext(),
-        context: ({ req, res }: any) => ({ req, res }),
-        schema,
-    });
-    // Mount jwt authentication middleware that is run before the GraphQL execution
-    const port = 4000;
-    const app = getMiddleWare(path);
-    server.applyMiddleware({ app, cors: { credentials: true, origin: true }, path });
-    app.listen({ port }, () => console.log(`🚀 Server ready at http://localhost:${port}${server.graphqlPath}`));
+  await configDB();
+  const schema = await createSchema();
+  const server = new ApolloServer({
+    // context: getUserFromContext(),
+    context: ({ req, res }: any) => ({ req, res }),
+    schema
+  });
+  // Mount jwt authentication middleware that is run before the GraphQL execution
+  const port = 4000;
+  const app = getMiddleWare(path);
+  server.applyMiddleware({
+    app,
+    cors: { credentials: true, origin: true },
+    path
+  });
+  app.listen({ port }, () =>
+    console.log(
+      `🚀 Server ready at http://localhost:${port}${server.graphqlPath}`
+    )
+  );
 })();

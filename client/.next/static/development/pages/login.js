@@ -16,7 +16,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_3__);
 
-var _jsxFileName = "/Users/james/Documents/formality-api/client/components/LoginForm.tsx";
+var _jsxFileName = "/home/jayy-lmao/Frameworks/Graphql/formality/client/components/LoginForm.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 function _templateObject() {
@@ -9161,10 +9161,10 @@ function getVisitFn(visitor, kind, isLeaving) {
 
 /***/ }),
 
-/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Flogin&absolutePagePath=%2FUsers%2Fjames%2FDocuments%2Fformality-api%2Fclient%2Fpages%2Flogin.tsx!./":
-/*!*******************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Flogin&absolutePagePath=%2FUsers%2Fjames%2FDocuments%2Fformality-api%2Fclient%2Fpages%2Flogin.tsx ***!
-  \*******************************************************************************************************************************************************************************************/
+/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Flogin&absolutePagePath=%2Fhome%2Fjayy-lmao%2FFrameworks%2FGraphql%2Fformality%2Fclient%2Fpages%2Flogin.tsx!./":
+/*!*****************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Flogin&absolutePagePath=%2Fhome%2Fjayy-lmao%2FFrameworks%2FGraphql%2Fformality%2Fclient%2Fpages%2Flogin.tsx ***!
+  \*****************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10496,7 +10496,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_LoginForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/LoginForm */ "./components/LoginForm.tsx");
-var _jsxFileName = "/Users/james/Documents/formality-api/client/pages/login.tsx";
+var _jsxFileName = "/home/jayy-lmao/Frameworks/Graphql/formality/client/pages/login.tsx";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -10528,13 +10528,13 @@ var Login = function Login() {
 /***/ }),
 
 /***/ 2:
-/*!***********************************************************************************************************************************************!*\
-  !*** multi next-client-pages-loader?page=%2Flogin&absolutePagePath=%2FUsers%2Fjames%2FDocuments%2Fformality-api%2Fclient%2Fpages%2Flogin.tsx ***!
-  \***********************************************************************************************************************************************/
+/*!*********************************************************************************************************************************************************!*\
+  !*** multi next-client-pages-loader?page=%2Flogin&absolutePagePath=%2Fhome%2Fjayy-lmao%2FFrameworks%2FGraphql%2Fformality%2Fclient%2Fpages%2Flogin.tsx ***!
+  \*********************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Flogin&absolutePagePath=%2FUsers%2Fjames%2FDocuments%2Fformality-api%2Fclient%2Fpages%2Flogin.tsx! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Flogin&absolutePagePath=%2FUsers%2Fjames%2FDocuments%2Fformality-api%2Fclient%2Fpages%2Flogin.tsx!./");
+module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Flogin&absolutePagePath=%2Fhome%2Fjayy-lmao%2FFrameworks%2FGraphql%2Fformality%2Fclient%2Fpages%2Flogin.tsx! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Flogin&absolutePagePath=%2Fhome%2Fjayy-lmao%2FFrameworks%2FGraphql%2Fformality%2Fclient%2Fpages%2Flogin.tsx!./");
 
 
 /***/ }),

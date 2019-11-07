@@ -110,7 +110,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var nprogress__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(nprogress__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _Meta__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Meta */ "./components/Meta.tsx");
 /* harmony import */ var _navbar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./navbar */ "./components/navbar.tsx");
-var _jsxFileName = "/Users/james/Documents/formality-api/client/components/Header.tsx";
+var _jsxFileName = "/home/jayy-lmao/Frameworks/Graphql/formality/client/components/Header.tsx";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -168,7 +168,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-var _jsxFileName = "/Users/james/Documents/formality-api/client/components/Meta.tsx";
+var _jsxFileName = "/home/jayy-lmao/Frameworks/Graphql/formality/client/components/Meta.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
@@ -228,7 +228,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
-var _jsxFileName = "/Users/james/Documents/formality-api/client/components/navbar.tsx";
+var _jsxFileName = "/home/jayy-lmao/Frameworks/Graphql/formality/client/components/navbar.tsx";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -2314,7 +2314,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Header__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Header */ "./components/Header.tsx");
 /* harmony import */ var _lib_withData__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../lib/withData */ "./lib/withData.ts");
 
-var _jsxFileName = "/Users/james/Documents/formality-api/client/pages/_app.tsx";
+var _jsxFileName = "/home/jayy-lmao/Frameworks/Graphql/formality/client/pages/_app.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement;
 
 
@@ -2323,14 +2323,6 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement;
 
 
 class FormalityApp extends next_app__WEBPACK_IMPORTED_MODULE_1___default.a {
-  // public static async getInitialProps({ Component, ctx}: {Component: Component, ctx: Context}) {
-  //     let pageProps = {};
-  //     if ((Component as any).getInitialProps) {
-  //         pageProps = await (Component as any).getInitialProps(ctx);
-  //     }
-  //     (pageProps as any).query = ctx.query;
-  //     return { pageProps };
-  // }
   render() {
     const {
       Component,
@@ -2340,26 +2332,26 @@ class FormalityApp extends next_app__WEBPACK_IMPORTED_MODULE_1___default.a {
     return __jsx("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 21
+        lineNumber: 13
       },
       __self: this
     }, __jsx(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["ApolloProvider"], {
       client: apollo,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 22
+        lineNumber: 14
       },
       __self: this
     }, __jsx(_components_Header__WEBPACK_IMPORTED_MODULE_4__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 23
+        lineNumber: 15
       },
       __self: this
     }), __jsx(Component, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, pageProps, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 24
+        lineNumber: 16
       },
       __self: this
     }))));
