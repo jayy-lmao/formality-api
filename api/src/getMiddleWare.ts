@@ -1,6 +1,7 @@
 import express from "express";
 import jwt from "express-jwt";
 import morgan from "morgan";
+import cors from 'cors';
 export const getMiddleWare = (path: string) => {
   const app = express();
   app.use(
@@ -17,5 +18,6 @@ export const getMiddleWare = (path: string) => {
      */
     morgan("dev")
   );
+  // app.use(cors);
   return app;
 };

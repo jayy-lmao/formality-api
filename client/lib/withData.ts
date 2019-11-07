@@ -3,7 +3,7 @@ import { HttpLink } from 'apollo-link-http';
 import withApollo from 'next-with-apollo';
 // import { endpoint } from '../config';
 
-const endpoint = '/api';
+const endpoint = 'http://localhost:4000/graphql';
 const cache = new InMemoryCache();
 
 
