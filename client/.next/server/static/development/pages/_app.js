@@ -104,13 +104,13 @@ module.exports =
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _navbar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./navbar */ "./components/navbar.tsx");
-/* harmony import */ var _Meta__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Meta */ "./components/Meta.js");
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/router */ "next/router");
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var nprogress__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! nprogress */ "nprogress");
-/* harmony import */ var nprogress__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(nprogress__WEBPACK_IMPORTED_MODULE_4__);
-var _jsxFileName = "/home/jayy-lmao/Frameworks/Graphql/formality/client/components/Header.tsx";
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/router */ "next/router");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var nprogress__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! nprogress */ "nprogress");
+/* harmony import */ var nprogress__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(nprogress__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _Meta__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Meta */ "./components/Meta.tsx");
+/* harmony import */ var _navbar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./navbar */ "./components/navbar.tsx");
+var _jsxFileName = "/Users/james/Documents/formality-api/client/components/Header.tsx";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -118,32 +118,32 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
-next_router__WEBPACK_IMPORTED_MODULE_3___default.a.onRouteChangeStart = () => {
-  console.log('started');
-  nprogress__WEBPACK_IMPORTED_MODULE_4___default.a.start();
+next_router__WEBPACK_IMPORTED_MODULE_1___default.a.onRouteChangeStart = () => {
+  console.log("started");
+  nprogress__WEBPACK_IMPORTED_MODULE_2___default.a.start();
 };
 
-next_router__WEBPACK_IMPORTED_MODULE_3___default.a.onRouteChangeComplete = () => {
-  nprogress__WEBPACK_IMPORTED_MODULE_4___default.a.done();
+next_router__WEBPACK_IMPORTED_MODULE_1___default.a.onRouteChangeComplete = () => {
+  nprogress__WEBPACK_IMPORTED_MODULE_2___default.a.done();
 };
 
-next_router__WEBPACK_IMPORTED_MODULE_3___default.a.onRouteChangeError = () => {
-  nprogress__WEBPACK_IMPORTED_MODULE_4___default.a.done();
+next_router__WEBPACK_IMPORTED_MODULE_1___default.a.onRouteChangeError = () => {
+  nprogress__WEBPACK_IMPORTED_MODULE_2___default.a.done();
 };
 
-const Header = props => __jsx("div", {
+const Header = () => __jsx("div", {
   __source: {
     fileName: _jsxFileName,
     lineNumber: 19
   },
   __self: undefined
-}, __jsx(_Meta__WEBPACK_IMPORTED_MODULE_2__["default"], {
+}, __jsx(_Meta__WEBPACK_IMPORTED_MODULE_3__["default"], {
   __source: {
     fileName: _jsxFileName,
     lineNumber: 20
   },
   __self: undefined
-}), __jsx(_navbar__WEBPACK_IMPORTED_MODULE_1__["default"], {
+}), __jsx(_navbar__WEBPACK_IMPORTED_MODULE_4__["default"], {
   __source: {
     fileName: _jsxFileName,
     lineNumber: 21
@@ -155,28 +155,28 @@ const Header = props => __jsx("div", {
 
 /***/ }),
 
-/***/ "./components/Meta.js":
-/*!****************************!*\
-  !*** ./components/Meta.js ***!
-  \****************************/
+/***/ "./components/Meta.tsx":
+/*!*****************************!*\
+  !*** ./components/Meta.tsx ***!
+  \*****************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/head */ "next/head");
-/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_1__);
-var _jsxFileName = "/home/jayy-lmao/Frameworks/Graphql/formality/client/components/Meta.js";
+/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! next/head */ "next/head");
+/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+var _jsxFileName = "/Users/james/Documents/formality-api/client/components/Meta.tsx";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
-const Meta = () => __jsx(next_head__WEBPACK_IMPORTED_MODULE_1___default.a, {
+const Meta = () => __jsx(next_head__WEBPACK_IMPORTED_MODULE_0___default.a, {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 4
+    lineNumber: 5
   },
   __self: undefined
 }, __jsx("meta", {
@@ -184,29 +184,29 @@ const Meta = () => __jsx(next_head__WEBPACK_IMPORTED_MODULE_1___default.a, {
   content: "width=device-width, initial-scale=1",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 5
+    lineNumber: 6
   },
   __self: undefined
 }), __jsx("meta", {
   charSet: "utf-8",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 6
+    lineNumber: 7
   },
   __self: undefined
 }), __jsx("link", {
   rel: "stylesheet",
   type: "text/css",
-  href: "/static/nprogress.css",
+  href: "/public/nprogress.css",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 7
+    lineNumber: 8
   },
   __self: undefined
 }), __jsx("title", {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 8
+    lineNumber: 9
   },
   __self: undefined
 }, "Formality!"));
@@ -228,12 +228,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
-var _jsxFileName = "/home/jayy-lmao/Frameworks/Graphql/formality/client/components/navbar.tsx";
+var _jsxFileName = "/Users/james/Documents/formality-api/client/components/navbar.tsx";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
-const navbar = props => __jsx("div", {
+const navbar = () => __jsx("div", {
   className: "ui-navbar",
   __source: {
     fileName: _jsxFileName,
@@ -269,6 +269,46 @@ const navbar = props => __jsx("div", {
 }, "login ")));
 
 /* harmony default export */ __webpack_exports__["default"] = (navbar);
+
+/***/ }),
+
+/***/ "./lib/withData.ts":
+/*!*************************!*\
+  !*** ./lib/withData.ts ***!
+  \*************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! apollo-boost */ "apollo-boost");
+/* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(apollo_boost__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var next_with_apollo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next-with-apollo */ "next-with-apollo");
+/* harmony import */ var next_with_apollo__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_with_apollo__WEBPACK_IMPORTED_MODULE_1__);
+
+ // import { endpoint } from '../config';
+
+const endpoint = '/api';
+const cache = new apollo_boost__WEBPACK_IMPORTED_MODULE_0__["InMemoryCache"]();
+
+const createClient = ({
+  headers
+}) => {
+  return new apollo_boost__WEBPACK_IMPORTED_MODULE_0___default.a({
+    request: operation => {
+      operation.setContext({
+        fetchOptions: {
+          credentials: 'include'
+        },
+        headers
+      });
+    },
+    uri:  true ? endpoint : undefined,
+    cache
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (next_with_apollo__WEBPACK_IMPORTED_MODULE_1___default()(createClient));
 
 /***/ }),
 
@@ -2252,48 +2292,69 @@ module.exports = __webpack_require__(/*! ./dist/client/link */ "./node_modules/n
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/extends */ "./node_modules/@babel/runtime-corejs2/helpers/esm/extends.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/app */ "./node_modules/next/app.js");
-/* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_app__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _components_Header__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Header */ "./components/Header.tsx");
+/* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/app */ "./node_modules/next/app.js");
+/* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_app__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @apollo/react-hooks */ "@apollo/react-hooks");
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _components_Header__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Header */ "./components/Header.tsx");
+/* harmony import */ var _lib_withData__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../lib/withData */ "./lib/withData.ts");
 
-var _jsxFileName = "/home/jayy-lmao/Frameworks/Graphql/formality/client/pages/_app.tsx";
-
-var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
-
+var _jsxFileName = "/Users/james/Documents/formality-api/client/pages/_app.tsx";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement;
 
 
-class formalityApp extends next_app__WEBPACK_IMPORTED_MODULE_2___default.a {
+
+
+
+
+class FormalityApp extends next_app__WEBPACK_IMPORTED_MODULE_1___default.a {
+  // public static async getInitialProps({ Component, ctx}: {Component: Component, ctx: Context}) {
+  //     let pageProps = {};
+  //     if ((Component as any).getInitialProps) {
+  //         pageProps = await (Component as any).getInitialProps(ctx);
+  //     }
+  //     (pageProps as any).query = ctx.query;
+  //     return { pageProps };
+  // }
   render() {
     const {
       Component,
-      pageProps
+      pageProps,
+      apollo
     } = this.props;
     return __jsx("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 8
+        lineNumber: 21
       },
       __self: this
-    }, __jsx(_components_Header__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    }, __jsx(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["ApolloProvider"], {
+      client: apollo,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 9
+        lineNumber: 22
+      },
+      __self: this
+    }, __jsx(_components_Header__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 23
       },
       __self: this
     }), __jsx(Component, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, pageProps, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 10
+        lineNumber: 24
       },
       __self: this
-    })));
+    }))));
   }
 
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (formalityApp);
+/* harmony default export */ __webpack_exports__["default"] = (Object(_lib_withData__WEBPACK_IMPORTED_MODULE_5__["default"])(FormalityApp));
 
 /***/ }),
 
@@ -2306,6 +2367,28 @@ class formalityApp extends next_app__WEBPACK_IMPORTED_MODULE_2___default.a {
 
 module.exports = __webpack_require__(/*! private-next-pages/_app.tsx */"./pages/_app.tsx");
 
+
+/***/ }),
+
+/***/ "@apollo/react-hooks":
+/*!**************************************!*\
+  !*** external "@apollo/react-hooks" ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@apollo/react-hooks");
+
+/***/ }),
+
+/***/ "apollo-boost":
+/*!*******************************!*\
+  !*** external "apollo-boost" ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("apollo-boost");
 
 /***/ }),
 
@@ -2394,6 +2477,17 @@ module.exports = require("core-js/library/fn/promise");
 /***/ (function(module, exports) {
 
 module.exports = require("core-js/library/fn/weak-map");
+
+/***/ }),
+
+/***/ "next-with-apollo":
+/*!***********************************!*\
+  !*** external "next-with-apollo" ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("next-with-apollo");
 
 /***/ }),
 

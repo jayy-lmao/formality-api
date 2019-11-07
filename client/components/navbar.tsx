@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const navbar = props => (
+const navbar = () => (
   <div className="ui-navbar">
     <Link href="/">
       <a>home </a>

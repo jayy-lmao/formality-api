@@ -23,7 +23,7 @@ const path = "/graphql";
   // Mount jwt authentication middleware that is run before the GraphQL execution
   const app = getMiddleWare(path);
   server.applyMiddleware({ app, path });
-  app.listen({ port: 4000 }, () =>
+  app.listen({ port: 3001 }, () =>
     console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`)
   );
 })();

@@ -1,7 +1,7 @@
-import Navbar from "./navbar";
-import Meta from "./Meta";
 import Router from "next/router";
 import NProgress from "nprogress";
+import Meta from "./Meta";
+import Navbar from "./navbar";
 
 (Router as any).onRouteChangeStart = () => {
   console.log("started");
@@ -15,7 +15,7 @@ import NProgress from "nprogress";
   NProgress.done();
 };
 
-const Header = props => (
+const Header = () => (
   <div>
     <Meta />
     <Navbar />

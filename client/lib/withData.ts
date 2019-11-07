@@ -1,10 +1,14 @@
+import ApolloClient, { InMemoryCache } from 'apollo-boost';
+import { HttpLink } from 'apollo-link-http';
 import withApollo from 'next-with-apollo';
-import ApolloClient from 'apollo-boost';
-import { endpoint } from '../config';
+// import { endpoint } from '../config';
 
-const createClient = ({ headers }) => {
+const endpoint = '/api';
+const cache = new InMemoryCache();
+
+
+const createClient = ({ headers }: { headers?: any }) => {
   return new ApolloClient({
-    uri: process.env.NODE_ENV === 'development' ? endpoint : endpoint,
     request: operation => {
       operation.setContext({
         fetchOptions: {
@@ -13,6 +17,8 @@ const createClient = ({ headers }) => {
         headers,
       });
     },
+    uri: process.env.NODE_ENV === 'development' ? endpoint : endpoint,
+    cache
   });
 }
 
