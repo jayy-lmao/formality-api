@@ -1,0 +1,59 @@
+version: '3'
+
+services:
+  nginx:
+    restart: always
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - 3000:80
+    depends_on:
+       - api
+       - client
+  api:
+    build:
+      dockerfile: Dockerfile
+      context: ./api
+    depends_on:
+      - mongodb
+    # ports:
+    #   - 4000:4000
+    environment:
+      - JWT_SECTRET=hushHushHush
+      - COVERALLS_SERVICE_NAME=circleci
+      - COVERALLS_REPO_TOKEN=PW3bldp2RijUv6lDwN3YBTvAWBAot1r3Z
+      - TYPEORM_ENTITIES=src/schemas/*.*
+      - TYPEORM_HOST=mongodb
+      - TYPEORM_USERNAME=admin
+      - TYPEORM_PASSWORD=password
+      - TYPEORM_DATABASE=test
+      - TYPEORM_LOGGING=true
+      - TYPEORM_SYNCHRONIZE=true
+      - TYPEORM_PORT=27017
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+  client:
+    build:
+      dockerfile: Dockerfile
+      context: ./client
+    depends_on:
+      - api
+    environment:
+      - GRAPHQL_ENDPOINT="/graphql"
+  redis:
+    image: redis:latest
+  mongodb:
+    image: mongo:latest
+    environment:
+     - MONGODB_USER=root
+     - MONGODB_PASS=admin
+     - MONGO_INITDB_DATABASE=test
+    volumes:
+     - ./data/mongo/001_users.js:/docker-entrypoint-initdb.d/001_users.js:ro
+     - mongodb:/data/db
+     - mongodb_config:/data/configdb
+
+volumes:
+  mongodb:
+  mongodb_config:
