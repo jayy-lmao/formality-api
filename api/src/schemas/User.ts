@@ -1,5 +1,10 @@
-import { Field, ID, ObjectType } from "type-graphql";
-import { BaseEntity, Column, Entity, ObjectIdColumn } from "typeorm";
+import { Field, ObjectType } from "type-graphql";
+import { 
+  BaseEntity, 
+  Column, 
+  Entity, 
+  ObjectIdColumn 
+} from "typeorm";
 import Form from "./Form";
 
 @ObjectType()

@@ -1,13 +1,11 @@
-import { Field, ID, ObjectType } from "type-graphql";
+import { Field, ObjectType } from "type-graphql";
 import {
   BaseEntity,
   Column,
   Entity,
   ObjectIdColumn,
-  PrimaryGeneratedColumn
 } from "typeorm";
 import Question from "./Question";
-import User from "./User";
 
 @ObjectType()
 @Entity()

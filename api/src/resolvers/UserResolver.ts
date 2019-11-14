@@ -35,9 +35,11 @@ class UserResolver {
    * @returns The user which is created.
    */
   @Mutation(returns => User)
-  public static async createUser(@Arg("data") data: UserInput): Promise<User> {
-    const { email, password: plaintext } = data;
+  public static async createUser(
+    @Arg("data") data: UserInput
+  ): Promise<User> {
     console.log({data})
+    const { email, password: plaintext } = data;
     const password = await hash(plaintext, this.saltRounds);
     const newUser = await User.create({
       email,
