@@ -21,11 +21,11 @@ export interface IUserData {
 class UserResolver {
     private saltRounds = 10;
     /**
-   * Creates a user.
-   * @remarks This method uses type-graphql annotations.
-   * @param data - User
-   * @returns The user which is created.
-   */
+     * Creates a user.
+     * @remarks This method uses type-graphql annotations.
+     * @param data - User
+     * @returns The user which is created.
+     */
     @Mutation((returns) => User)
     public async createUser(@Arg("data") data: UserInput): Promise<User> {
         console.log({ data });
