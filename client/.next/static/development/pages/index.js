@@ -20212,7 +20212,7 @@ var Home = function Home() {
 
 /***/ }),
 
-/***/ 0:
+/***/ 1:
 /*!*******************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2Fapp%2Fpages%2Findex.tsx ***!
   \*******************************************************************************************/
@@ -20235,5 +20235,5 @@ module.exports = dll_37d7f7dad825a4ef664a;
 
 /***/ })
 
-},[[0,"static/runtime/webpack.js"]]]);
+},[[1,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map

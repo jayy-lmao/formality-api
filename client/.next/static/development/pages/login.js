@@ -10524,7 +10524,7 @@ var Login = function Login() {
 
 /***/ }),
 
-/***/ 3:
+/***/ 2:
 /*!************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Flogin&absolutePagePath=%2Fapp%2Fpages%2Flogin.tsx ***!
   \************************************************************************************************/
@@ -10547,5 +10547,5 @@ module.exports = dll_37d7f7dad825a4ef664a;
 
 /***/ })
 
-},[[3,"static/runtime/webpack.js"]]]);
+},[[2,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=login.js.map

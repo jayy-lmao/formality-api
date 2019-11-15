@@ -119,7 +119,6 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 next_router__WEBPACK_IMPORTED_MODULE_1___default.a.onRouteChangeStart = () => {
-  console.log("started");
   nprogress__WEBPACK_IMPORTED_MODULE_2___default.a.start();
 };
 
@@ -134,19 +133,19 @@ next_router__WEBPACK_IMPORTED_MODULE_1___default.a.onRouteChangeError = () => {
 const Header = () => __jsx("div", {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 19
+    lineNumber: 18
   },
   __self: undefined
 }, __jsx(_Meta__WEBPACK_IMPORTED_MODULE_3__["default"], {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 20
+    lineNumber: 19
   },
   __self: undefined
 }), __jsx(_navbar__WEBPACK_IMPORTED_MODULE_4__["default"], {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 21
+    lineNumber: 20
   },
   __self: undefined
 }));
@@ -176,7 +175,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 const Meta = () => __jsx(next_head__WEBPACK_IMPORTED_MODULE_0___default.a, {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 6
+    lineNumber: 5
   },
   __self: undefined
 }, __jsx("meta", {
@@ -184,20 +183,20 @@ const Meta = () => __jsx(next_head__WEBPACK_IMPORTED_MODULE_0___default.a, {
   content: "width=device-width, initial-scale=1",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 7
+    lineNumber: 6
   },
   __self: undefined
 }), __jsx("meta", {
   charSet: "utf-8",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 8
+    lineNumber: 7
   },
   __self: undefined
 }), __jsx("title", {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 9
+    lineNumber: 8
   },
   __self: undefined
 }, "Formality!"));
@@ -5667,10 +5666,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @apollo/react-hooks */ "@apollo/react-hooks");
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _components_Header__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Header */ "./components/Header.tsx");
-/* harmony import */ var _lib_withData__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../lib/withData */ "./lib/withData.ts");
+/* harmony import */ var _public_nprogress_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../public/nprogress.css */ "./public/nprogress.css");
+/* harmony import */ var _public_nprogress_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_public_nprogress_css__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _lib_withData__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../lib/withData */ "./lib/withData.ts");
 
 var _jsxFileName = "/app/pages/_app.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement;
+
 
 
 
@@ -5687,26 +5689,26 @@ class FormalityApp extends next_app__WEBPACK_IMPORTED_MODULE_1___default.a {
     return __jsx("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 13
+        lineNumber: 14
       },
       __self: this
     }, __jsx(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["ApolloProvider"], {
       client: apollo,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 14
+        lineNumber: 15
       },
       __self: this
     }, __jsx(_components_Header__WEBPACK_IMPORTED_MODULE_4__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 15
+        lineNumber: 16
       },
       __self: this
     }), __jsx(Component, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, pageProps, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 16
+        lineNumber: 17
       },
       __self: this
     }))));
@@ -5714,7 +5716,18 @@ class FormalityApp extends next_app__WEBPACK_IMPORTED_MODULE_1___default.a {
 
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(_lib_withData__WEBPACK_IMPORTED_MODULE_5__["default"])(FormalityApp));
+/* harmony default export */ __webpack_exports__["default"] = (Object(_lib_withData__WEBPACK_IMPORTED_MODULE_6__["default"])(FormalityApp));
+
+/***/ }),
+
+/***/ "./public/nprogress.css":
+/*!******************************!*\
+  !*** ./public/nprogress.css ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
 
 /***/ }),
 
