@@ -2,6 +2,7 @@ import App, { Container } from "next/app";
 import React from "react";
 import { ApolloProvider } from "@apollo/react-hooks";
 import Header from "../components/Header";
+import "../public/nprogress.css";
 
 import withData from "../lib/withData";
 

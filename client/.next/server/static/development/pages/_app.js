@@ -176,7 +176,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 const Meta = () => __jsx(next_head__WEBPACK_IMPORTED_MODULE_0___default.a, {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 5
+    lineNumber: 6
   },
   __self: undefined
 }, __jsx("meta", {
@@ -184,20 +184,11 @@ const Meta = () => __jsx(next_head__WEBPACK_IMPORTED_MODULE_0___default.a, {
   content: "width=device-width, initial-scale=1",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 6
+    lineNumber: 7
   },
   __self: undefined
 }), __jsx("meta", {
   charSet: "utf-8",
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 7
-  },
-  __self: undefined
-}), __jsx("link", {
-  rel: "stylesheet",
-  type: "text/css",
-  href: "/public/nprogress.css",
   __source: {
     fileName: _jsxFileName,
     lineNumber: 8
@@ -302,20 +293,7 @@ __webpack_require__.r(__webpack_exports__);
  // import { endpoint } from '../config';
 
 const endpoint = '/graphql';
-const cache = new apollo_boost__WEBPACK_IMPORTED_MODULE_0__["InMemoryCache"](); // const createClient = ({ headers }: { headers?: any }) => {
-//   return new ApolloClient({
-//     request: operation => {
-//       operation.setContext({
-//         fetchOptions: {
-//           credentials: 'include',
-//         },
-//         headers,
-//       });
-//     },
-//     uri: process.env.NODE_ENV === 'development' ? endpoint : endpoint,
-//     cache
-//   });
-// }
+const cache = new apollo_boost__WEBPACK_IMPORTED_MODULE_0__["InMemoryCache"]();
 
 const createClient = ({
   headers

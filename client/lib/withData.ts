@@ -6,22 +6,6 @@ import withApollo from 'next-with-apollo';
 const endpoint = '/graphql';
 const cache = new InMemoryCache();
 
-
-// const createClient = ({ headers }: { headers?: any }) => {
-//   return new ApolloClient({
-//     request: operation => {
-//       operation.setContext({
-//         fetchOptions: {
-//           credentials: 'include',
-//         },
-//         headers,
-//       });
-//     },
-//     uri: process.env.NODE_ENV === 'development' ? endpoint : endpoint,
-//     cache
-//   });
-// }
-
 const createClient = ({ headers }: { headers?: any }) => {
   return new ApolloClient({
     request: (operation) => {

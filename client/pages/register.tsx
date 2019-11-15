@@ -2,17 +2,15 @@ import React from "react";
 import { useFormik } from "formik";
 import { gql } from "apollo-boost";
 import { useMutation } from "@apollo/react-hooks";
+import { GraphQLError } from "graphql";
 
 const REGISTER_USER = gql`
-mutation($email: String!, $password: String!){
-  createUser(data:{
-    email:$email,
-    password:$password
-  }){
-    id
-    email
-  }
-}
+    mutation($email: String!, $password: String!) {
+        createUser(data: { email: $email, password: $password }) {
+            id
+            email
+        }
+    }
 `;
 
 const Register = () => {
@@ -28,12 +26,25 @@ const Register = () => {
                     email,
                     password,
                 },
-            });
+            })
+                .then(({ data: { createUser } }) => {
+                    console.log(createUser);
+                })
+                .catch((errorResponse) => {
+                    console.log({ gqlErrs: errorResponse.graphQLErrors });
+                    if (errorResponse.message.includes("duplicate key error")) {
+                        console.error("User Already Exists");
+                    }
+                    // } else if (errorResponse.graphQLErrors[0].extensions.exception.validationErrors[0].constraints) {
+                    //     console.log(Object.values(errorResponse.graphQLErrors[0].extensions.constraints))
+                    // }
+                });
         },
     });
 
     return (
         <div>
+            <h1>Register</h1>
             <form onSubmit={formik.handleSubmit}>
                 <label htmlFor="email">
                     Email address

@@ -88,15 +88,15 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./pages/register.tsx":
-/*!****************************!*\
-  !*** ./pages/register.tsx ***!
-  \****************************/
+/***/ "./components/LoginForm.tsx":
+/*!**********************************!*\
+  !*** ./components/LoginForm.tsx ***!
+  \**********************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -104,122 +104,154 @@ module.exports =
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! formik */ "formik");
-/* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(formik__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! apollo-boost */ "apollo-boost");
-/* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(apollo_boost__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @apollo/react-hooks */ "@apollo/react-hooks");
-/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__);
-var _jsxFileName = "/app/pages/register.tsx";
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @apollo/react-hooks */ "@apollo/react-hooks");
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! graphql-tag */ "graphql-tag");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_2__);
+var _jsxFileName = "/app/components/LoginForm.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
-
-const REGISTER_USER = apollo_boost__WEBPACK_IMPORTED_MODULE_2__["gql"]`
-mutation($email: String!, $password: String!){
-  createUser(data:{
-    email:$email,
-    password:$password
-  }){
-    id
-    email
+const LOGIN = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default.a`
+query($email: String, $password: String) {
+    login(email: $email,password: $password)
   }
-}
 `;
 
-const Register = () => {
-  const [registerUser, {
-    data
-  }] = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useMutation"])(REGISTER_USER);
-  const formik = Object(formik__WEBPACK_IMPORTED_MODULE_1__["useFormik"])({
-    initialValues: {
-      email: "",
-      password: ""
-    },
-    onSubmit: ({
-      email,
-      password
-    }) => {
-      registerUser({
-        variables: {
-          email,
-          password
-        }
-      });
-    }
-  });
+const LoginForm = () => {
+  const login = (email, password) => {
+    // console.log({ email, password });
+    const {
+      loading,
+      data
+    } = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_1__["useQuery"])(LOGIN, {
+      variables: {
+        email,
+        password
+      }
+    });
+    console.log({
+      loading,
+      data
+    });
+  };
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+    login(email, password);
+  };
+
   return __jsx("div", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 36
-    },
-    __self: undefined
-  }, __jsx("form", {
-    onSubmit: formik.handleSubmit,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 37
     },
     __self: undefined
-  }, __jsx("label", {
-    htmlFor: "email",
+  }, __jsx("form", {
+    className: "login-form",
+    onSubmit: handleSubmit,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 38
     },
     __self: undefined
-  }, "Email address", __jsx("input", {
-    name: "email",
-    id: "email",
-    type: "email",
-    onChange: formik.handleChange,
-    value: formik.values.email,
+  }, __jsx("label", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40
+      lineNumber: 39
+    },
+    __self: undefined
+  }, "Username:", __jsx("input", {
+    name: "email",
+    type: "text",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 41
     },
     __self: undefined
   })), __jsx("label", {
-    htmlFor: "password",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 48
+      lineNumber: 43
     },
     __self: undefined
-  }, "Email address", __jsx("input", {
+  }, "Password:", __jsx("input", {
     name: "password",
-    id: "password",
     type: "password",
-    onChange: formik.handleChange,
-    value: formik.values.password,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50
+      lineNumber: 45
     },
     __self: undefined
-  })), __jsx("button", {
+  })), __jsx("input", {
     type: "submit",
+    value: "Submit",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 58
+      lineNumber: 47
     },
     __self: undefined
-  }, "SignUp")));
+  })));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Register);
+/* harmony default export */ __webpack_exports__["default"] = (LoginForm);
 
 /***/ }),
 
-/***/ 5:
-/*!**********************************!*\
-  !*** multi ./pages/register.tsx ***!
-  \**********************************/
+/***/ "./pages/login.tsx":
+/*!*************************!*\
+  !*** ./pages/login.tsx ***!
+  \*************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_LoginForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/LoginForm */ "./components/LoginForm.tsx");
+var _jsxFileName = "/app/pages/login.tsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+const Login = () => {
+  return __jsx("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 5
+    },
+    __self: undefined
+  }, __jsx("h1", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 6
+    },
+    __self: undefined
+  }, "Login"), __jsx(_components_LoginForm__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7
+    },
+    __self: undefined
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Login);
+
+/***/ }),
+
+/***/ 6:
+/*!*******************************!*\
+  !*** multi ./pages/login.tsx ***!
+  \*******************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /app/pages/register.tsx */"./pages/register.tsx");
+module.exports = __webpack_require__(/*! /app/pages/login.tsx */"./pages/login.tsx");
 
 
 /***/ }),
@@ -235,25 +267,14 @@ module.exports = require("@apollo/react-hooks");
 
 /***/ }),
 
-/***/ "apollo-boost":
-/*!*******************************!*\
-  !*** external "apollo-boost" ***!
-  \*******************************/
+/***/ "graphql-tag":
+/*!******************************!*\
+  !*** external "graphql-tag" ***!
+  \******************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = require("apollo-boost");
-
-/***/ }),
-
-/***/ "formik":
-/*!*************************!*\
-  !*** external "formik" ***!
-  \*************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("formik");
+module.exports = require("graphql-tag");
 
 /***/ }),
 
@@ -269,4 +290,4 @@ module.exports = require("react");
 /***/ })
 
 /******/ });
-//# sourceMappingURL=register.js.map
+//# sourceMappingURL=login.js.map

@@ -4,7 +4,6 @@ import Meta from "./Meta";
 import Navbar from "./navbar";
 
 (Router as any).onRouteChangeStart = () => {
-  console.log("started");
   NProgress.start();
 };
 (Router as any).onRouteChangeComplete = () => {
