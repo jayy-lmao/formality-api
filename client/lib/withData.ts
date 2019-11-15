@@ -3,7 +3,7 @@ import { HttpLink } from 'apollo-link-http';
 import withApollo from 'next-with-apollo';
 // import { endpoint } from '../config';
 
-const endpoint = 'http://localhost:4000/graphql';
+const endpoint = '/graphql';
 const cache = new InMemoryCache();
 
 
@@ -37,4 +37,4 @@ const createClient = ({ headers }: { headers?: any }) => {
   })
 }
 
-export default withApollo(createClient);
+export default withApollo(createClient, { getDataFromTree: 'ssr' });

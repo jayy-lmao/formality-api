@@ -20,7 +20,7 @@ interface loginVars {
 
 const LoginForm = () => {
     const login = (email: string, password: string) => {
-        console.log({ email, password });
+        // console.log({ email, password });
         const { loading, data } = useQuery<tokenData, loginVars>(
             LOGIN,
             { variables: { email, password } }
@@ -35,7 +35,7 @@ const LoginForm = () => {
         login(email, password);
     }
     return (<div>
-        <form onSubmit={handleSubmit}>
+        <form className="login-form" onSubmit={handleSubmit}>
             <label>
                 Username:
                 <input name="email" type="text" />

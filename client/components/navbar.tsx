@@ -8,6 +8,9 @@ const navbar = () => (
     <Link href="/login">
       <a>login </a>
     </Link>
+    <Link href="/register">
+      <a>register</a>
+    </Link>
   </div>
 );
 export default navbar;
