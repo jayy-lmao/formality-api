@@ -1,29 +1,29 @@
-import React from 'react';
-import {useQuery} from '@apollo/react-hooks';
-import gql from 'graphql-tag';
+import { useQuery } from "@apollo/react-hooks";
+import gql from "graphql-tag";
+import React from "react";
 
-interface User {
-    id: string,
-    email: string,
+interface IUser {
+  id: string;
+  email: string;
 }
 
-interface UsersData {
-    users: User[]
+interface IUsersData {
+  users: IUser[];
 }
 
 const GET_USERS = gql`
-query{
-    users{
+  query {
+    users {
       id
       email
     }
   }
-`
+`;
 
 const UserList = () => {
-    const { loading, data } = useQuery<UsersData>(GET_USERS);
-    console.log({loading,data})
-    return (<p>Im doing the gql</p>)
-}
+  const { loading, data } = useQuery<IUsersData>(GET_USERS);
+  console.log({ loading, data });
+  return <p>Im doing the gql</p>;
+};
 
 export default UserList;

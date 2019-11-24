@@ -7,18 +7,17 @@ import "../public/nprogress.css";
 import withData from "../lib/withData";
 
 class FormalityApp extends App {
-
-    public render() {
-        const { Component, pageProps, apollo } = (this.props as any);
-        return (
-            <div>
-                <ApolloProvider client={apollo}>
-                    <Header />
-                    <Component {...pageProps} />
-                </ApolloProvider>
-            </div>
-        );
-    }
+  public render() {
+    const { Component, pageProps, apollo } = this.props as any;
+    return (
+      <div>
+        <ApolloProvider client={apollo}>
+          <Header />
+          <Component {...pageProps} />
+        </ApolloProvider>
+      </div>
+    );
+  }
 }
 
 export default withData(FormalityApp);

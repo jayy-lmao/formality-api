@@ -27,8 +27,7 @@
     "isolatedModules": true
   },
   "include": [
-    "components",
-    "pages"
+    "components"
   ],
   "exclude": [
     "./node_modules"
