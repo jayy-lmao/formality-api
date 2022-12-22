@@ -22,7 +22,7 @@
     "express-jwt": "^5.3.1",
     "graphql": "^14.5.8",
     "graphql-yoga": "^1.18.3",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "mongodb": "^3.3.3",
     "morgan": "^1.9.1",
     "ts-mock-imports": "^1.2.6",
